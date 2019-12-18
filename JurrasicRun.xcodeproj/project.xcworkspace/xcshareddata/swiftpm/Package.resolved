@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "JurrasicRunBoard",
+        "repositoryURL": "https://github.com/MartonioJunior/JurrasicRunBoard.git",
+        "state": {
+          "branch": "master",
+          "revision": "37d54fa326956911407f9f366f25753641a30ce1",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -11,18 +11,16 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let scene = GameScene.newGameScene()
-        
+
+        let root = GameScene.current
+
         // Present the scene
-        let skView = self.view as! SKView
+        guard let skView = self.view as? SKView else { return }
         skView.presentScene(scene)
-        
         skView.ignoresSiblingOrder = true
-        
         skView.showsFPS = true
         skView.showsNodeCount = true
     }

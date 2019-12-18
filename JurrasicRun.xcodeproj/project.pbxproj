@@ -3,10 +3,46 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		302C945C23A90E9F00DEDFD5 /* GameBoardTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945B23A90E9F00DEDFD5 /* GameBoardTile.swift */; };
+		302C945E23A914F300DEDFD5 /* SKBoardTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945D23A914F300DEDFD5 /* SKBoardTile.swift */; };
+		302C946023A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */; };
+		302C946323A9237400DEDFD5 /* BoardUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C946223A9237400DEDFD5 /* BoardUserData.swift */; };
+		30B0A7342396773C00E187A9 /* JurrasicRunBoard in Frameworks */ = {isa = PBXBuildFile; productRef = 30B0A7332396773C00E187A9 /* JurrasicRunBoard */; };
+		30B0A736239679A200E187A9 /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A735239679A200E187A9 /* GameEntity.swift */; };
+		30B0A73D23967DBB00E187A9 /* GameComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A73C23967DBB00E187A9 /* GameComponentSystem.swift */; };
+		30B0A74023967F6F00E187A9 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A73F23967F6F00E187A9 /* Actor.swift */; };
+		30B0A74A2396A3D200E187A9 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A7492396A3D200E187A9 /* GameBoard.swift */; };
+		30B0A74C2396A8BE00E187A9 /* SKBoardTileGrass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A74B2396A8BE00E187A9 /* SKBoardTileGrass.swift */; };
+		30B0A7532397161600E187A9 /* PlayerLogicComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A7522397161600E187A9 /* PlayerLogicComponent.swift */; };
+		30B0A7552397162A00E187A9 /* DinosaurLogicComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A7542397162A00E187A9 /* DinosaurLogicComponent.swift */; };
+		30B0A756239718AA00E187A9 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A7492396A3D200E187A9 /* GameBoard.swift */; };
+		30B0A757239718AA00E187A9 /* SKBoardTileGrass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A74B2396A8BE00E187A9 /* SKBoardTileGrass.swift */; };
+		30B0A758239718AB00E187A9 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A7492396A3D200E187A9 /* GameBoard.swift */; };
+		30B0A759239718AB00E187A9 /* SKBoardTileGrass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A74B2396A8BE00E187A9 /* SKBoardTileGrass.swift */; };
+		30B0A75A239718AF00E187A9 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A73F23967F6F00E187A9 /* Actor.swift */; };
+		30B0A75D239718B000E187A9 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A73F23967F6F00E187A9 /* Actor.swift */; };
+		30B0A761239718B300E187A9 /* GameComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A73C23967DBB00E187A9 /* GameComponentSystem.swift */; };
+		30B0A762239718B300E187A9 /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A735239679A200E187A9 /* GameEntity.swift */; };
+		30B0A765239718B400E187A9 /* GameComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A73C23967DBB00E187A9 /* GameComponentSystem.swift */; };
+		30B0A766239718B400E187A9 /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A735239679A200E187A9 /* GameEntity.swift */; };
+		30B0A769239718B700E187A9 /* PlayerLogicComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A7522397161600E187A9 /* PlayerLogicComponent.swift */; };
+		30B0A76A239718B700E187A9 /* DinosaurLogicComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A7542397162A00E187A9 /* DinosaurLogicComponent.swift */; };
+		30B0A76C239718B800E187A9 /* PlayerLogicComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A7522397161600E187A9 /* PlayerLogicComponent.swift */; };
+		30B0A76D239718B800E187A9 /* DinosaurLogicComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A7542397162A00E187A9 /* DinosaurLogicComponent.swift */; };
+		30B0A7702397211300E187A9 /* SKDinosaur.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30B0A76F2397211300E187A9 /* SKDinosaur.sks */; };
+		30B0A773239722EC00E187A9 /* SKHuman.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30B0A772239722EC00E187A9 /* SKHuman.sks */; };
+		30B0A793239A755F00E187A9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A792239A755F00E187A9 /* GameScene.swift */; };
+		30B0A795239A76F200E187A9 /* UIResponderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A794239A76F200E187A9 /* UIResponderDelegate.swift */; };
+		30B0A79A239A8BFA00E187A9 /* SKBoardTileGrass.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30B0A799239A8BFA00E187A9 /* SKBoardTileGrass.sks */; };
+		30E3EA2C239E783900862569 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A792239A755F00E187A9 /* GameScene.swift */; };
+		30E3EA2D239E783A00862569 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A792239A755F00E187A9 /* GameScene.swift */; };
+		30E3EA31239E7F1600862569 /* GameControllerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3EA30239E7F1600862569 /* GameControllerComponent.swift */; };
+		30E3EA33239E969600862569 /* SKDinosaur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3EA32239E969600862569 /* SKDinosaur.swift */; };
+		30E3EA35239E96A100862569 /* SKHuman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3EA34239E96A100862569 /* SKHuman.swift */; };
 		30E4F11A233E2A1000DDC39C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F119233E2A1000DDC39C /* AppDelegate.swift */; };
 		30E4F11C233E2A1000DDC39C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F11B233E2A1000DDC39C /* GameViewController.swift */; };
 		30E4F11F233E2A1000DDC39C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F11D233E2A1000DDC39C /* Main.storyboard */; };
@@ -18,24 +54,39 @@
 		30E4F13C233E2A1000DDC39C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F13B233E2A1000DDC39C /* AppDelegate.swift */; };
 		30E4F13E233E2A1000DDC39C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F13D233E2A1000DDC39C /* GameViewController.swift */; };
 		30E4F141233E2A1000DDC39C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F13F233E2A1000DDC39C /* Main.storyboard */; };
-		30E4F143233E2A1000DDC39C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F10E233E2A0A00DDC39C /* Actions.sks */; };
-		30E4F144233E2A1000DDC39C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F10E233E2A0A00DDC39C /* Actions.sks */; };
-		30E4F145233E2A1000DDC39C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F10E233E2A0A00DDC39C /* Actions.sks */; };
-		30E4F146233E2A1000DDC39C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F10F233E2A0A00DDC39C /* GameScene.sks */; };
-		30E4F147233E2A1000DDC39C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F10F233E2A0A00DDC39C /* GameScene.sks */; };
-		30E4F148233E2A1000DDC39C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F10F233E2A0A00DDC39C /* GameScene.sks */; };
-		30E4F149233E2A1000DDC39C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F110233E2A0A00DDC39C /* GameScene.swift */; };
-		30E4F14A233E2A1000DDC39C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F110233E2A0A00DDC39C /* GameScene.swift */; };
-		30E4F14B233E2A1000DDC39C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F110233E2A0A00DDC39C /* GameScene.swift */; };
+		30E4F146233E2A1000DDC39C /* GameScene1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F10F233E2A0A00DDC39C /* GameScene1.sks */; };
+		30E4F147233E2A1000DDC39C /* GameScene1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F10F233E2A0A00DDC39C /* GameScene1.sks */; };
+		30E4F148233E2A1000DDC39C /* GameScene1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F10F233E2A0A00DDC39C /* GameScene1.sks */; };
+		30E4F149233E2A1000DDC39C /* GKScene+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F110233E2A0A00DDC39C /* GKScene+Load.swift */; };
+		30E4F14A233E2A1000DDC39C /* GKScene+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F110233E2A0A00DDC39C /* GKScene+Load.swift */; };
+		30E4F14B233E2A1000DDC39C /* GKScene+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F110233E2A0A00DDC39C /* GKScene+Load.swift */; };
 		30E4F14C233E2A1000DDC39C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F111233E2A1000DDC39C /* Assets.xcassets */; };
 		30E4F14D233E2A1000DDC39C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F111233E2A1000DDC39C /* Assets.xcassets */; };
 		30E4F14E233E2A1000DDC39C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E4F111233E2A1000DDC39C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		30E4F10E233E2A0A00DDC39C /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		30E4F10F233E2A0A00DDC39C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		30E4F110233E2A0A00DDC39C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		302C945B23A90E9F00DEDFD5 /* GameBoardTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardTile.swift; sourceTree = "<group>"; };
+		302C945D23A914F300DEDFD5 /* SKBoardTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBoardTile.swift; sourceTree = "<group>"; };
+		302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKGraphNode2D+CGPoint.swift"; sourceTree = "<group>"; };
+		302C946223A9237400DEDFD5 /* BoardUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardUserData.swift; sourceTree = "<group>"; };
+		30B0A735239679A200E187A9 /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
+		30B0A73C23967DBB00E187A9 /* GameComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComponentSystem.swift; sourceTree = "<group>"; };
+		30B0A73F23967F6F00E187A9 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
+		30B0A7492396A3D200E187A9 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		30B0A74B2396A8BE00E187A9 /* SKBoardTileGrass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBoardTileGrass.swift; sourceTree = "<group>"; };
+		30B0A7522397161600E187A9 /* PlayerLogicComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogicComponent.swift; sourceTree = "<group>"; };
+		30B0A7542397162A00E187A9 /* DinosaurLogicComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurLogicComponent.swift; sourceTree = "<group>"; };
+		30B0A76F2397211300E187A9 /* SKDinosaur.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SKDinosaur.sks; sourceTree = "<group>"; };
+		30B0A772239722EC00E187A9 /* SKHuman.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SKHuman.sks; sourceTree = "<group>"; };
+		30B0A792239A755F00E187A9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		30B0A794239A76F200E187A9 /* UIResponderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderDelegate.swift; sourceTree = "<group>"; };
+		30B0A799239A8BFA00E187A9 /* SKBoardTileGrass.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SKBoardTileGrass.sks; sourceTree = "<group>"; };
+		30E3EA30239E7F1600862569 /* GameControllerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerComponent.swift; sourceTree = "<group>"; };
+		30E3EA32239E969600862569 /* SKDinosaur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKDinosaur.swift; sourceTree = "<group>"; };
+		30E3EA34239E96A100862569 /* SKHuman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKHuman.swift; sourceTree = "<group>"; };
+		30E4F10F233E2A0A00DDC39C /* GameScene1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene1.sks; sourceTree = "<group>"; };
+		30E4F110233E2A0A00DDC39C /* GKScene+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKScene+Load.swift"; sourceTree = "<group>"; };
 		30E4F111233E2A1000DDC39C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30E4F116233E2A1000DDC39C /* JurrasicRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JurrasicRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30E4F119233E2A1000DDC39C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B0A7342396773C00E187A9 /* JurrasicRunBoard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +133,115 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		302C946123A91A4300DEDFD5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A7492396A3D200E187A9 /* GameBoard.swift */,
+				302C945B23A90E9F00DEDFD5 /* GameBoardTile.swift */,
+				30B0A73C23967DBB00E187A9 /* GameComponentSystem.swift */,
+				30B0A735239679A200E187A9 /* GameEntity.swift */,
+				30B0A792239A755F00E187A9 /* GameScene.swift */,
+				302C946223A9237400DEDFD5 /* BoardUserData.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		30B0A73B23967D2700E187A9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A7482396A3BA00E187A9 /* Non-Actors */,
+				30B0A7472396A3A500E187A9 /* Actors */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		30B0A73E23967F3E00E187A9 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				30E4F10F233E2A0A00DDC39C /* GameScene1.sks */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
+		30B0A7472396A3A500E187A9 /* Actors */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A73F23967F6F00E187A9 /* Actor.swift */,
+				30B0A76E239720A700E187A9 /* Dinosaur */,
+				30B0A771239722D600E187A9 /* Human */,
+			);
+			path = Actors;
+			sourceTree = "<group>";
+		};
+		30B0A7482396A3BA00E187A9 /* Non-Actors */ = {
+			isa = PBXGroup;
+			children = (
+				302C945D23A914F300DEDFD5 /* SKBoardTile.swift */,
+				30B0A778239728A400E187A9 /* Board Tile */,
+			);
+			path = "Non-Actors";
+			sourceTree = "<group>";
+		};
+		30B0A76E239720A700E187A9 /* Dinosaur */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A76F2397211300E187A9 /* SKDinosaur.sks */,
+				30E3EA32239E969600862569 /* SKDinosaur.swift */,
+			);
+			path = Dinosaur;
+			sourceTree = "<group>";
+		};
+		30B0A771239722D600E187A9 /* Human */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A772239722EC00E187A9 /* SKHuman.sks */,
+				30E3EA34239E96A100862569 /* SKHuman.swift */,
+			);
+			path = Human;
+			sourceTree = "<group>";
+		};
+		30B0A7762397282100E187A9 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				30E3EA30239E7F1600862569 /* GameControllerComponent.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		30B0A7772397282600E187A9 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A7522397161600E187A9 /* PlayerLogicComponent.swift */,
+				30B0A7542397162A00E187A9 /* DinosaurLogicComponent.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		30B0A778239728A400E187A9 /* Board Tile */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A799239A8BFA00E187A9 /* SKBoardTileGrass.sks */,
+				30B0A74B2396A8BE00E187A9 /* SKBoardTileGrass.swift */,
+			);
+			path = "Board Tile";
+			sourceTree = "<group>";
+		};
+		30B0A77923972B0D00E187A9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A794239A76F200E187A9 /* UIResponderDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		30B0A78E239A6F5900E187A9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				30E4F111233E2A1000DDC39C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		30E4F108233E2A0A00DDC39C = {
 			isa = PBXGroup;
 			children = (
@@ -95,10 +256,14 @@
 		30E4F10D233E2A0A00DDC39C /* JurrasicRun Shared */ = {
 			isa = PBXGroup;
 			children = (
-				30E4F10E233E2A0A00DDC39C /* Actions.sks */,
-				30E4F10F233E2A0A00DDC39C /* GameScene.sks */,
-				30E4F110233E2A0A00DDC39C /* GameScene.swift */,
-				30E4F111233E2A1000DDC39C /* Assets.xcassets */,
+				30B0A78E239A6F5900E187A9 /* Resources */,
+				30B0A73B23967D2700E187A9 /* Entities */,
+				302C946123A91A4300DEDFD5 /* Classes */,
+				30E4F15C233E2A3B00DDC39C /* Extensions */,
+				30E4F15B233E2A3600DDC39C /* Components */,
+				30E4F15D233E2A4B00DDC39C /* Controllers */,
+				30B0A77923972B0D00E187A9 /* Protocols */,
+				30E4F15A233E2A2A00DDC39C /* Scenes */,
 			);
 			path = "JurrasicRun Shared";
 			sourceTree = "<group>";
@@ -148,6 +313,39 @@
 			path = "JurrasicRun macOS";
 			sourceTree = "<group>";
 		};
+		30E4F15A233E2A2A00DDC39C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A73E23967F3E00E187A9 /* Levels */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		30E4F15B233E2A3600DDC39C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				30B0A7772397282600E187A9 /* Logic */,
+				30B0A7762397282100E187A9 /* General */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		30E4F15C233E2A3B00DDC39C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				30E4F110233E2A0A00DDC39C /* GKScene+Load.swift */,
+				302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		30E4F15D233E2A4B00DDC39C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,12 +356,16 @@
 				30E4F112233E2A1000DDC39C /* Sources */,
 				30E4F113233E2A1000DDC39C /* Frameworks */,
 				30E4F114233E2A1000DDC39C /* Resources */,
+				30E3EA2B239E6ECE00862569 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "JurrasicRun iOS";
+			packageProductDependencies = (
+				30B0A7332396773C00E187A9 /* JurrasicRunBoard */,
+			);
 			productName = "JurrasicRun iOS";
 			productReference = 30E4F116233E2A1000DDC39C /* JurrasicRun.app */;
 			productType = "com.apple.product-type.application";
@@ -209,7 +411,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = martonio;
 				TargetAttributes = {
 					30E4F115233E2A1000DDC39C = {
@@ -232,6 +434,9 @@
 				Base,
 			);
 			mainGroup = 30E4F108233E2A0A00DDC39C;
+			packageReferences = (
+				30B0A7322396773C00E187A9 /* XCRemoteSwiftPackageReference "JurrasicRunBoard" */,
+			);
 			productRefGroup = 30E4F117233E2A1000DDC39C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,10 +453,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E4F146233E2A1000DDC39C /* GameScene.sks in Resources */,
+				30E4F146233E2A1000DDC39C /* GameScene1.sks in Resources */,
 				30E4F11F233E2A1000DDC39C /* Main.storyboard in Resources */,
-				30E4F143233E2A1000DDC39C /* Actions.sks in Resources */,
+				30B0A773239722EC00E187A9 /* SKHuman.sks in Resources */,
 				30E4F122233E2A1000DDC39C /* LaunchScreen.storyboard in Resources */,
+				30B0A7702397211300E187A9 /* SKDinosaur.sks in Resources */,
+				30B0A79A239A8BFA00E187A9 /* SKBoardTileGrass.sks in Resources */,
 				30E4F14C233E2A1000DDC39C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,9 +467,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E4F147233E2A1000DDC39C /* GameScene.sks in Resources */,
+				30E4F147233E2A1000DDC39C /* GameScene1.sks in Resources */,
 				30E4F130233E2A1000DDC39C /* Main.storyboard in Resources */,
-				30E4F144233E2A1000DDC39C /* Actions.sks in Resources */,
 				30E4F133233E2A1000DDC39C /* LaunchScreen.storyboard in Resources */,
 				30E4F14D233E2A1000DDC39C /* Assets.xcassets in Resources */,
 			);
@@ -273,22 +479,57 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E4F141233E2A1000DDC39C /* Main.storyboard in Resources */,
-				30E4F148233E2A1000DDC39C /* GameScene.sks in Resources */,
+				30E4F148233E2A1000DDC39C /* GameScene1.sks in Resources */,
 				30E4F14E233E2A1000DDC39C /* Assets.xcassets in Resources */,
-				30E4F145233E2A1000DDC39C /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		30E3EA2B239E6ECE00862569 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		30E4F112233E2A1000DDC39C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E4F149233E2A1000DDC39C /* GameScene.swift in Sources */,
+				30B0A7552397162A00E187A9 /* DinosaurLogicComponent.swift in Sources */,
+				30B0A793239A755F00E187A9 /* GameScene.swift in Sources */,
+				30E3EA33239E969600862569 /* SKDinosaur.swift in Sources */,
+				302C946323A9237400DEDFD5 /* BoardUserData.swift in Sources */,
+				30B0A795239A76F200E187A9 /* UIResponderDelegate.swift in Sources */,
+				30B0A7532397161600E187A9 /* PlayerLogicComponent.swift in Sources */,
+				30B0A73D23967DBB00E187A9 /* GameComponentSystem.swift in Sources */,
+				30E4F149233E2A1000DDC39C /* GKScene+Load.swift in Sources */,
+				30B0A74C2396A8BE00E187A9 /* SKBoardTileGrass.swift in Sources */,
+				302C945E23A914F300DEDFD5 /* SKBoardTile.swift in Sources */,
+				302C946023A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift in Sources */,
 				30E4F11C233E2A1000DDC39C /* GameViewController.swift in Sources */,
+				30B0A74023967F6F00E187A9 /* Actor.swift in Sources */,
+				30B0A736239679A200E187A9 /* GameEntity.swift in Sources */,
 				30E4F11A233E2A1000DDC39C /* AppDelegate.swift in Sources */,
+				30E3EA31239E7F1600862569 /* GameControllerComponent.swift in Sources */,
+				30B0A74A2396A3D200E187A9 /* GameBoard.swift in Sources */,
+				302C945C23A90E9F00DEDFD5 /* GameBoardTile.swift in Sources */,
+				30E3EA35239E96A100862569 /* SKHuman.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,9 +537,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E4F14A233E2A1000DDC39C /* GameScene.swift in Sources */,
+				30B0A76A239718B700E187A9 /* DinosaurLogicComponent.swift in Sources */,
+				30B0A769239718B700E187A9 /* PlayerLogicComponent.swift in Sources */,
+				30B0A761239718B300E187A9 /* GameComponentSystem.swift in Sources */,
+				30B0A756239718AA00E187A9 /* GameBoard.swift in Sources */,
+				30E4F14A233E2A1000DDC39C /* GKScene+Load.swift in Sources */,
+				30B0A757239718AA00E187A9 /* SKBoardTileGrass.swift in Sources */,
+				30B0A75A239718AF00E187A9 /* Actor.swift in Sources */,
 				30E4F12D233E2A1000DDC39C /* GameViewController.swift in Sources */,
 				30E4F12B233E2A1000DDC39C /* AppDelegate.swift in Sources */,
+				30E3EA2C239E783900862569 /* GameScene.swift in Sources */,
+				30B0A762239718B300E187A9 /* GameEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,9 +555,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E4F14B233E2A1000DDC39C /* GameScene.swift in Sources */,
+				30B0A76D239718B800E187A9 /* DinosaurLogicComponent.swift in Sources */,
+				30B0A76C239718B800E187A9 /* PlayerLogicComponent.swift in Sources */,
+				30B0A765239718B400E187A9 /* GameComponentSystem.swift in Sources */,
+				30B0A758239718AB00E187A9 /* GameBoard.swift in Sources */,
+				30E4F14B233E2A1000DDC39C /* GKScene+Load.swift in Sources */,
+				30B0A759239718AB00E187A9 /* SKBoardTileGrass.swift in Sources */,
+				30B0A75D239718B000E187A9 /* Actor.swift in Sources */,
 				30E4F13E233E2A1000DDC39C /* GameViewController.swift in Sources */,
 				30E4F13C233E2A1000DDC39C /* AppDelegate.swift in Sources */,
+				30E3EA2D239E783A00862569 /* GameScene.swift in Sources */,
+				30B0A766239718B400E187A9 /* GameEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +810,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = U3BJSYBS9R;
@@ -574,6 +832,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = U3BJSYBS9R;
@@ -631,6 +890,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		30B0A7322396773C00E187A9 /* XCRemoteSwiftPackageReference "JurrasicRunBoard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MartonioJunior/JurrasicRunBoard.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		30B0A7332396773C00E187A9 /* JurrasicRunBoard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30B0A7322396773C00E187A9 /* XCRemoteSwiftPackageReference "JurrasicRunBoard" */;
+			productName = JurrasicRunBoard;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 30E4F109233E2A0A00DDC39C /* Project object */;
 }
