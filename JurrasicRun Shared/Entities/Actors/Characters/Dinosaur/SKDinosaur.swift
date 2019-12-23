@@ -6,12 +6,17 @@
 //  Copyright © 2019 martonio. All rights reserved.
 //
 
-import Foundation
+import JurrasicRunBoard
 
-class SKDinosaur: Actor {
+class SKDinosaur: Character {
     override func setupComponents(_ actor: Actor) -> GameEntity? {
         return GameEntity(with: [
-            DinosaurLogicComponent()
+            DinosaurLogicComponent(),
+            MovementComponent(speed: 60.0)
         ], for: self)
+    }
+
+    override func getPlayer() -> Player? {
+        return self.entity?.component(ofType: DinosaurLogicComponent.self)?.dinosaur
     }
 }

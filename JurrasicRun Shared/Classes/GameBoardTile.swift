@@ -43,4 +43,15 @@ class GameBoardTile: BoardTile {
             board.createPath(from: currentID, to: destinationID, pathType)
         }
     }
+
+    func destinations(for pathType: Board.PathType) -> [GameBoardTile] {
+        switch pathType {
+        case .red:
+            return redPaths as? [GameBoardTile] ?? []
+        case .blue:
+            return bluePaths as? [GameBoardTile] ?? []
+        case .yellow:
+            return yellowPaths as? [GameBoardTile] ?? []
+        }
+    }
 }

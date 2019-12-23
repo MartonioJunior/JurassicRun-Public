@@ -11,10 +11,22 @@ import JurrasicRunBoard
 
 class DinosaurLogicComponent: GKComponent {
     var dinosaur: Dinosaur
+    weak var node: SKDinosaur?
 
     override init() {
         self.dinosaur = Dinosaur()
         super.init()
+    }
+
+    override func didAddToEntity() {
+        self.node = self.entity()?.actor as? SKDinosaur
+    }
+
+    static func allDinosaurs() -> [Dinosaur] {
+        guard let components = GameComponentSystem.getSystem(.dinosaurLogic)?.components
+            as? [DinosaurLogicComponent] else { return [] }
+        let dinosaur = components.map { $0.dinosaur }
+        return dinosaur
     }
 
     required init?(coder: NSCoder) {
@@ -22,6 +34,6 @@ class DinosaurLogicComponent: GKComponent {
     }
 
     override func update(deltaTime time: TimeInterval) {
-        print("Dino!")
+
     }
 }

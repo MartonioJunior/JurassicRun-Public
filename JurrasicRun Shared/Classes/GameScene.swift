@@ -12,9 +12,14 @@ import GameplayKit
 class GameScene: SKScene {
     weak var root: GKScene?
     var board: GameBoard?
+    var controller: GameBoardController?
     var spinnyNode: SKShapeNode?
 
-    static var buffer: Set<GKEntity> = []
+    /// Variables to measure time
+    var globalTimer: TimeInterval = 0
+    var lastTime: TimeInterval = 0
+
+    static var buffer: Set<GameEntity> = []
     static var current: GKScene = GKScene.loadScene(number: 1)
 
     override init() {
@@ -26,13 +31,7 @@ class GameScene: SKScene {
     }
 
     func connectTo(_ root: GKScene) {
-        // Create an GKEntity for the scene
-        let entity = GameEntity()
-        entity.addComponent(GameControllerComponent())
-
         self.root = root
-        self.entity = entity
-        root.addEntity(entity)
         root.rootNode = self
     }
 
@@ -40,11 +39,13 @@ class GameScene: SKScene {
         // Remove all entities from the buffer
         while !GameScene.buffer.isEmpty {
             let entity = GameScene.buffer.removeFirst()
-            GameScene.current.addEntity(entity)
+            if entity.actor != nil {
+                GameScene.current.addEntity(entity)
+            }
         }
 
-        // Load Board information
-        GameScene.current.loadBoard()
+        // Load Game information
+        GameScene.current.loadGame()
 
         // Debug touch interaction
         guard let scene = self.scene else { return }
@@ -96,9 +97,14 @@ class GameScene: SKScene {
     #endif
 
     override func update(_ currentTime: TimeInterval) {
+        // Update Scene Timers
+        globalTimer = currentTime
+        let deltaTime = currentTime - lastTime
+        lastTime = currentTime
+
         guard let controller = root else { return }
         for entity in controller.entities {
-            entity.update(deltaTime: currentTime)
+            entity.update(deltaTime: deltaTime)
         }
     }
 }
@@ -110,7 +116,15 @@ extension GameScene: UIResponderEvents {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let scene = self.scene else { return }
         for touch in touches {
-            self.makeSpinny(at: touch.location(in: scene), color: SKColor.green)
+            let location = touch.location(in: scene)
+            self.makeSpinny(at: location, color: SKColor.green)
+
+            let touchRect = GKQuad.create(in: location, withRadius: Settings.Input.touchRadius)
+            if let selectedSpace = board?.quadTree.elements(in: touchRect).first,
+                let selectedTile = selectedSpace.boardTile {
+                self.selected(tile: selectedTile, on: self)
+                selectedSpace.color = .blue
+            }
         }
     }
 

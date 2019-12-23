@@ -11,8 +11,12 @@ import JurrasicRunBoard
 
 class GameBoard: Board {
     var graph: GKGraph
+    var quadTree: GKQuadtree<SKBoardTile>
+
     override init() {
         self.graph = GKGraph()
+        self.quadTree = GKQuadtree(boundingQuad: GKQuad.create(with: Settings.Scene.limitBounds),
+                                   minimumCellSize: Settings.GameplayKit.quadTreeCellSize)
         super.init()
     }
 
@@ -20,7 +24,7 @@ class GameBoard: Board {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupGraph() {
+    func configureBoard() {
         guard let spaces = self.spaces as? [GameBoardTile] else { return }
         for boardSpace in spaces {
             boardSpace.setupTile()
@@ -33,6 +37,9 @@ class GameBoard: Board {
                 }
             }
             graph.add([node])
+            if let node = boardSpace.node {
+                quadTree.add(node, at: node.scenePosition().vector2())
+            }
         }
     }
 

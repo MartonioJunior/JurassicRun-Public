@@ -11,10 +11,22 @@ import JurrasicRunBoard
 
 class PlayerLogicComponent: GKComponent {
     var human: Human
+    weak var node: SKHuman?
 
     override init() {
         self.human = Human()
         super.init()
+    }
+    
+    override func didAddToEntity() {
+        self.node = self.entity()?.actor as? SKHuman
+    }
+
+    static func allHumans() -> [Human] {
+        guard let components = GameComponentSystem.getSystem(.playerLogic)?.components
+            as? [PlayerLogicComponent] else { return [] }
+        let humans = components.map { $0.human }
+        return humans
     }
 
     required init?(coder: NSCoder) {
@@ -22,6 +34,6 @@ class PlayerLogicComponent: GKComponent {
     }
 
     override func update(deltaTime seconds: TimeInterval) {
-        print("Human!")
+
     }
 }

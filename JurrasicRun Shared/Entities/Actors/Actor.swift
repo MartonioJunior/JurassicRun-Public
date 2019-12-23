@@ -25,6 +25,7 @@ class Actor: SKSpriteNode {
 
     func loadEntity() {
         guard let entity = setupComponents(self) else { return }
+        self.entity = entity
         GameScene.buffer.insert(entity)
     }
 }

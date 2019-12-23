@@ -6,12 +6,17 @@
 //  Copyright © 2019 martonio. All rights reserved.
 //
 
-import Foundation
+import JurrasicRunBoard
 
-class SKHuman: Actor {
+class SKHuman: Character {
     override func setupComponents(_ actor: Actor) -> GameEntity? {
         return GameEntity(with: [
-            PlayerLogicComponent()
+            PlayerLogicComponent(),
+            MovementComponent(speed: 60.0)
         ], for: self)
+    }
+
+    override func getPlayer() -> Player? {
+        return self.entity?.component(ofType: PlayerLogicComponent.self)?.human
     }
 }

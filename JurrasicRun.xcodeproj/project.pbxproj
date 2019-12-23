@@ -11,6 +11,50 @@
 		302C945E23A914F300DEDFD5 /* SKBoardTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945D23A914F300DEDFD5 /* SKBoardTile.swift */; };
 		302C946023A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */; };
 		302C946323A9237400DEDFD5 /* BoardUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C946223A9237400DEDFD5 /* BoardUserData.swift */; };
+		3059EBA523AA55F800B391A8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA423AA55F800B391A8 /* Character.swift */; };
+		3059EBA723AA5D2400B391A8 /* CGPoint+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA623AA5D2400B391A8 /* CGPoint+Operations.swift */; };
+		3059EBA923AA657800B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA823AA657800B391A8 /* SKSpriteNode+ScenePosition.swift */; };
+		3059EBAB23AA694100B391A8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBAA23AA694100B391A8 /* Settings.swift */; };
+		3059EBB023AA6D9B00B391A8 /* GKQuad+CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBAF23AA6D9B00B391A8 /* GKQuad+CGRect.swift */; };
+		3059EBB223AA709E00B391A8 /* CGRect+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBB123AA709E00B391A8 /* CGRect+Operations.swift */; };
+		3059EBB323AA7BA700B391A8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBAA23AA694100B391A8 /* Settings.swift */; };
+		3059EBB423AA7BA700B391A8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBAA23AA694100B391A8 /* Settings.swift */; };
+		3059EBB823AA7C6E00B391A8 /* GameInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBB723AA7C6E00B391A8 /* GameInterface.swift */; };
+		3059EBBE23AA805500B391A8 /* GameScene+GameInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBBD23AA805500B391A8 /* GameScene+GameInterface.swift */; };
+		3059EBC023AB96A500B391A8 /* GameBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBBF23AB96A500B391A8 /* GameBoardController.swift */; };
+		3059EBCA23ABB55B00B391A8 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBC923ABB55B00B391A8 /* EventData.swift */; };
+		3059EBCC23ABBE1200B391A8 /* Player+SpriteKitIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBCB23ABBE1200B391A8 /* Player+SpriteKitIntegration.swift */; };
+		3059EBCE23ABC1BB00B391A8 /* Human+SpriteKitIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBCD23ABC1BB00B391A8 /* Human+SpriteKitIntegration.swift */; };
+		3059EBCF23ABC1BF00B391A8 /* Player+SpriteKitIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBCB23ABBE1200B391A8 /* Player+SpriteKitIntegration.swift */; };
+		3059EBD023ABC1C000B391A8 /* Player+SpriteKitIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBCB23ABBE1200B391A8 /* Player+SpriteKitIntegration.swift */; };
+		3059EBD123ABC1C200B391A8 /* Human+SpriteKitIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBCD23ABC1BB00B391A8 /* Human+SpriteKitIntegration.swift */; };
+		3059EBD223ABC1C300B391A8 /* Human+SpriteKitIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBCD23ABC1BB00B391A8 /* Human+SpriteKitIntegration.swift */; };
+		3059EBD323AD14CE00B391A8 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBC923ABB55B00B391A8 /* EventData.swift */; };
+		3059EBD423AD14CF00B391A8 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBC923ABB55B00B391A8 /* EventData.swift */; };
+		3059EBD523AD14D400B391A8 /* BoardUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C946223A9237400DEDFD5 /* BoardUserData.swift */; };
+		3059EBD623AD14D400B391A8 /* BoardUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C946223A9237400DEDFD5 /* BoardUserData.swift */; };
+		3059EBD823AD15D500B391A8 /* Dinosaur+SpriteKitIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBD723AD15D500B391A8 /* Dinosaur+SpriteKitIntegration.swift */; };
+		3059EBDB23AD16B100B391A8 /* GameBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBBF23AB96A500B391A8 /* GameBoardController.swift */; };
+		3059EBDC23AD16B100B391A8 /* GameBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBBF23AB96A500B391A8 /* GameBoardController.swift */; };
+		3059EBDD23AD1E3400B391A8 /* GKQuad+CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBAF23AA6D9B00B391A8 /* GKQuad+CGRect.swift */; };
+		3059EBDE23AD1E3500B391A8 /* GKQuad+CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBAF23AA6D9B00B391A8 /* GKQuad+CGRect.swift */; };
+		3059EBDF23AD1E3900B391A8 /* CGPoint+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA623AA5D2400B391A8 /* CGPoint+Operations.swift */; };
+		3059EBE023AD1E3900B391A8 /* CGPoint+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA623AA5D2400B391A8 /* CGPoint+Operations.swift */; };
+		3059EBE123AD1E3C00B391A8 /* CGRect+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBB123AA709E00B391A8 /* CGRect+Operations.swift */; };
+		3059EBE223AD1E3C00B391A8 /* CGRect+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBB123AA709E00B391A8 /* CGRect+Operations.swift */; };
+		3059EBE323AD1E4000B391A8 /* GKGraphNode2D+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */; };
+		3059EBE423AD1E4100B391A8 /* GKGraphNode2D+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */; };
+		3059EBE523AD1E4500B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA823AA657800B391A8 /* SKSpriteNode+ScenePosition.swift */; };
+		3059EBE623AD1E4500B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA823AA657800B391A8 /* SKSpriteNode+ScenePosition.swift */; };
+		3059EBE823AD1E6E00B391A8 /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBE723AD1E6E00B391A8 /* MovementComponent.swift */; };
+		3059EBE923AD210E00B391A8 /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBE723AD1E6E00B391A8 /* MovementComponent.swift */; };
+		3059EBEA23AD210F00B391A8 /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBE723AD1E6E00B391A8 /* MovementComponent.swift */; };
+		3059EBED23AD276F00B391A8 /* GKComponent+GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBEC23AD276F00B391A8 /* GKComponent+GameEntity.swift */; };
+		3059EBEF23AD290800B391A8 /* GameScene1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3059EBEE23AD290800B391A8 /* GameScene1.plist */; };
+		3059EBF123AD36C100B391A8 /* CGVector+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBF023AD36C100B391A8 /* CGVector+Operations.swift */; };
+		3059EBF323B0EF8000B391A8 /* SKShapeNode+BoardPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBF223B0EF8000B391A8 /* SKShapeNode+BoardPath.swift */; };
+		3059EBF423B0F80C00B391A8 /* SKShapeNode+BoardPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBF223B0EF8000B391A8 /* SKShapeNode+BoardPath.swift */; };
+		3059EBF523B0F80C00B391A8 /* SKShapeNode+BoardPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBF223B0EF8000B391A8 /* SKShapeNode+BoardPath.swift */; };
 		30B0A7342396773C00E187A9 /* JurrasicRunBoard in Frameworks */ = {isa = PBXBuildFile; productRef = 30B0A7332396773C00E187A9 /* JurrasicRunBoard */; };
 		30B0A736239679A200E187A9 /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A735239679A200E187A9 /* GameEntity.swift */; };
 		30B0A73D23967DBB00E187A9 /* GameComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A73C23967DBB00E187A9 /* GameComponentSystem.swift */; };
@@ -40,7 +84,6 @@
 		30B0A79A239A8BFA00E187A9 /* SKBoardTileGrass.sks in Resources */ = {isa = PBXBuildFile; fileRef = 30B0A799239A8BFA00E187A9 /* SKBoardTileGrass.sks */; };
 		30E3EA2C239E783900862569 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A792239A755F00E187A9 /* GameScene.swift */; };
 		30E3EA2D239E783A00862569 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0A792239A755F00E187A9 /* GameScene.swift */; };
-		30E3EA31239E7F1600862569 /* GameControllerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3EA30239E7F1600862569 /* GameControllerComponent.swift */; };
 		30E3EA33239E969600862569 /* SKDinosaur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3EA32239E969600862569 /* SKDinosaur.swift */; };
 		30E3EA35239E96A100862569 /* SKHuman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E3EA34239E96A100862569 /* SKHuman.swift */; };
 		30E4F11A233E2A1000DDC39C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F119233E2A1000DDC39C /* AppDelegate.swift */; };
@@ -70,6 +113,24 @@
 		302C945D23A914F300DEDFD5 /* SKBoardTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBoardTile.swift; sourceTree = "<group>"; };
 		302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKGraphNode2D+CGPoint.swift"; sourceTree = "<group>"; };
 		302C946223A9237400DEDFD5 /* BoardUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardUserData.swift; sourceTree = "<group>"; };
+		3059EBA423AA55F800B391A8 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		3059EBA623AA5D2400B391A8 /* CGPoint+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Operations.swift"; sourceTree = "<group>"; };
+		3059EBA823AA657800B391A8 /* SKSpriteNode+ScenePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+ScenePosition.swift"; sourceTree = "<group>"; };
+		3059EBAA23AA694100B391A8 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		3059EBAF23AA6D9B00B391A8 /* GKQuad+CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKQuad+CGRect.swift"; sourceTree = "<group>"; };
+		3059EBB123AA709E00B391A8 /* CGRect+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Operations.swift"; sourceTree = "<group>"; };
+		3059EBB723AA7C6E00B391A8 /* GameInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInterface.swift; sourceTree = "<group>"; };
+		3059EBBD23AA805500B391A8 /* GameScene+GameInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+GameInterface.swift"; sourceTree = "<group>"; };
+		3059EBBF23AB96A500B391A8 /* GameBoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardController.swift; sourceTree = "<group>"; };
+		3059EBC923ABB55B00B391A8 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
+		3059EBCB23ABBE1200B391A8 /* Player+SpriteKitIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+SpriteKitIntegration.swift"; sourceTree = "<group>"; };
+		3059EBCD23ABC1BB00B391A8 /* Human+SpriteKitIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Human+SpriteKitIntegration.swift"; sourceTree = "<group>"; };
+		3059EBD723AD15D500B391A8 /* Dinosaur+SpriteKitIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dinosaur+SpriteKitIntegration.swift"; sourceTree = "<group>"; };
+		3059EBE723AD1E6E00B391A8 /* MovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementComponent.swift; sourceTree = "<group>"; };
+		3059EBEC23AD276F00B391A8 /* GKComponent+GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKComponent+GameEntity.swift"; sourceTree = "<group>"; };
+		3059EBEE23AD290800B391A8 /* GameScene1.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GameScene1.plist; sourceTree = "<group>"; };
+		3059EBF023AD36C100B391A8 /* CGVector+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Operations.swift"; sourceTree = "<group>"; };
+		3059EBF223B0EF8000B391A8 /* SKShapeNode+BoardPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKShapeNode+BoardPath.swift"; sourceTree = "<group>"; };
 		30B0A735239679A200E187A9 /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
 		30B0A73C23967DBB00E187A9 /* GameComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComponentSystem.swift; sourceTree = "<group>"; };
 		30B0A73F23967F6F00E187A9 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
@@ -82,7 +143,6 @@
 		30B0A792239A755F00E187A9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		30B0A794239A76F200E187A9 /* UIResponderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderDelegate.swift; sourceTree = "<group>"; };
 		30B0A799239A8BFA00E187A9 /* SKBoardTileGrass.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SKBoardTileGrass.sks; sourceTree = "<group>"; };
-		30E3EA30239E7F1600862569 /* GameControllerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerComponent.swift; sourceTree = "<group>"; };
 		30E3EA32239E969600862569 /* SKDinosaur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKDinosaur.swift; sourceTree = "<group>"; };
 		30E3EA34239E96A100862569 /* SKHuman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKHuman.swift; sourceTree = "<group>"; };
 		30E4F10F233E2A0A00DDC39C /* GameScene1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene1.sks; sourceTree = "<group>"; };
@@ -136,14 +196,68 @@
 		302C946123A91A4300DEDFD5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				302C946223A9237400DEDFD5 /* BoardUserData.swift */,
+				3059EBC923ABB55B00B391A8 /* EventData.swift */,
 				30B0A7492396A3D200E187A9 /* GameBoard.swift */,
+				3059EBBF23AB96A500B391A8 /* GameBoardController.swift */,
 				302C945B23A90E9F00DEDFD5 /* GameBoardTile.swift */,
 				30B0A73C23967DBB00E187A9 /* GameComponentSystem.swift */,
 				30B0A735239679A200E187A9 /* GameEntity.swift */,
 				30B0A792239A755F00E187A9 /* GameScene.swift */,
-				302C946223A9237400DEDFD5 /* BoardUserData.swift */,
+				3059EBBD23AA805500B391A8 /* GameScene+GameInterface.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		3059EBA323AA55B900B391A8 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				3059EBA423AA55F800B391A8 /* Character.swift */,
+				30B0A76E239720A700E187A9 /* Dinosaur */,
+				30B0A771239722D600E187A9 /* Human */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		3059EBAC23AA695500B391A8 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				3059EBAA23AA694100B391A8 /* Settings.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		3059EBD923AD163A00B391A8 /* JurassicRunBoard */ = {
+			isa = PBXGroup;
+			children = (
+				3059EBCB23ABBE1200B391A8 /* Player+SpriteKitIntegration.swift */,
+				3059EBCD23ABC1BB00B391A8 /* Human+SpriteKitIntegration.swift */,
+				3059EBD723AD15D500B391A8 /* Dinosaur+SpriteKitIntegration.swift */,
+			);
+			path = JurassicRunBoard;
+			sourceTree = "<group>";
+		};
+		3059EBDA23AD165100B391A8 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				3059EBA623AA5D2400B391A8 /* CGPoint+Operations.swift */,
+				3059EBB123AA709E00B391A8 /* CGRect+Operations.swift */,
+				3059EBF023AD36C100B391A8 /* CGVector+Operations.swift */,
+				3059EBEC23AD276F00B391A8 /* GKComponent+GameEntity.swift */,
+				302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */,
+				3059EBAF23AA6D9B00B391A8 /* GKQuad+CGRect.swift */,
+				30E4F110233E2A0A00DDC39C /* GKScene+Load.swift */,
+				3059EBF223B0EF8000B391A8 /* SKShapeNode+BoardPath.swift */,
+				3059EBA823AA657800B391A8 /* SKSpriteNode+ScenePosition.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		3059EBEB23AD236E00B391A8 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Actions;
 			sourceTree = "<group>";
 		};
 		30B0A73B23967D2700E187A9 /* Entities */ = {
@@ -159,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				30E4F10F233E2A0A00DDC39C /* GameScene1.sks */,
+				3059EBEE23AD290800B391A8 /* GameScene1.plist */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -167,8 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				30B0A73F23967F6F00E187A9 /* Actor.swift */,
-				30B0A76E239720A700E187A9 /* Dinosaur */,
-				30B0A771239722D600E187A9 /* Human */,
+				3059EBA323AA55B900B391A8 /* Characters */,
 			);
 			path = Actors;
 			sourceTree = "<group>";
@@ -203,7 +317,7 @@
 		30B0A7762397282100E187A9 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				30E3EA30239E7F1600862569 /* GameControllerComponent.swift */,
+				3059EBE723AD1E6E00B391A8 /* MovementComponent.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -230,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				30B0A794239A76F200E187A9 /* UIResponderDelegate.swift */,
+				3059EBB723AA7C6E00B391A8 /* GameInterface.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -256,13 +371,14 @@
 		30E4F10D233E2A0A00DDC39C /* JurrasicRun Shared */ = {
 			isa = PBXGroup;
 			children = (
-				30B0A78E239A6F5900E187A9 /* Resources */,
-				30B0A73B23967D2700E187A9 /* Entities */,
-				302C946123A91A4300DEDFD5 /* Classes */,
-				30E4F15C233E2A3B00DDC39C /* Extensions */,
 				30E4F15B233E2A3600DDC39C /* Components */,
 				30E4F15D233E2A4B00DDC39C /* Controllers */,
+				302C946123A91A4300DEDFD5 /* Classes */,
+				30B0A73B23967D2700E187A9 /* Entities */,
+				3059EBAC23AA695500B391A8 /* Enums */,
+				30E4F15C233E2A3B00DDC39C /* Extensions */,
 				30B0A77923972B0D00E187A9 /* Protocols */,
+				30B0A78E239A6F5900E187A9 /* Resources */,
 				30E4F15A233E2A2A00DDC39C /* Scenes */,
 			);
 			path = "JurrasicRun Shared";
@@ -324,6 +440,7 @@
 		30E4F15B233E2A3600DDC39C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3059EBEB23AD236E00B391A8 /* Actions */,
 				30B0A7772397282600E187A9 /* Logic */,
 				30B0A7762397282100E187A9 /* General */,
 			);
@@ -333,8 +450,8 @@
 		30E4F15C233E2A3B00DDC39C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				30E4F110233E2A0A00DDC39C /* GKScene+Load.swift */,
-				302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */,
+				3059EBDA23AD165100B391A8 /* Swift */,
+				3059EBD923AD163A00B391A8 /* JurassicRunBoard */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -456,6 +573,7 @@
 				30E4F146233E2A1000DDC39C /* GameScene1.sks in Resources */,
 				30E4F11F233E2A1000DDC39C /* Main.storyboard in Resources */,
 				30B0A773239722EC00E187A9 /* SKHuman.sks in Resources */,
+				3059EBEF23AD290800B391A8 /* GameScene1.plist in Resources */,
 				30E4F122233E2A1000DDC39C /* LaunchScreen.storyboard in Resources */,
 				30B0A7702397211300E187A9 /* SKDinosaur.sks in Resources */,
 				30B0A79A239A8BFA00E187A9 /* SKBoardTileGrass.sks in Resources */,
@@ -511,22 +629,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3059EBA923AA657800B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */,
 				30B0A7552397162A00E187A9 /* DinosaurLogicComponent.swift in Sources */,
+				3059EBCA23ABB55B00B391A8 /* EventData.swift in Sources */,
 				30B0A793239A755F00E187A9 /* GameScene.swift in Sources */,
+				3059EBCC23ABBE1200B391A8 /* Player+SpriteKitIntegration.swift in Sources */,
+				3059EBB823AA7C6E00B391A8 /* GameInterface.swift in Sources */,
 				30E3EA33239E969600862569 /* SKDinosaur.swift in Sources */,
 				302C946323A9237400DEDFD5 /* BoardUserData.swift in Sources */,
+				3059EBCE23ABC1BB00B391A8 /* Human+SpriteKitIntegration.swift in Sources */,
+				3059EBD823AD15D500B391A8 /* Dinosaur+SpriteKitIntegration.swift in Sources */,
 				30B0A795239A76F200E187A9 /* UIResponderDelegate.swift in Sources */,
+				3059EBF323B0EF8000B391A8 /* SKShapeNode+BoardPath.swift in Sources */,
+				3059EBED23AD276F00B391A8 /* GKComponent+GameEntity.swift in Sources */,
 				30B0A7532397161600E187A9 /* PlayerLogicComponent.swift in Sources */,
 				30B0A73D23967DBB00E187A9 /* GameComponentSystem.swift in Sources */,
+				3059EBF123AD36C100B391A8 /* CGVector+Operations.swift in Sources */,
+				3059EBAB23AA694100B391A8 /* Settings.swift in Sources */,
+				3059EBA523AA55F800B391A8 /* Character.swift in Sources */,
 				30E4F149233E2A1000DDC39C /* GKScene+Load.swift in Sources */,
+				3059EBE823AD1E6E00B391A8 /* MovementComponent.swift in Sources */,
 				30B0A74C2396A8BE00E187A9 /* SKBoardTileGrass.swift in Sources */,
+				3059EBB223AA709E00B391A8 /* CGRect+Operations.swift in Sources */,
 				302C945E23A914F300DEDFD5 /* SKBoardTile.swift in Sources */,
+				3059EBA723AA5D2400B391A8 /* CGPoint+Operations.swift in Sources */,
+				3059EBBE23AA805500B391A8 /* GameScene+GameInterface.swift in Sources */,
+				3059EBB023AA6D9B00B391A8 /* GKQuad+CGRect.swift in Sources */,
 				302C946023A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift in Sources */,
 				30E4F11C233E2A1000DDC39C /* GameViewController.swift in Sources */,
 				30B0A74023967F6F00E187A9 /* Actor.swift in Sources */,
+				3059EBC023AB96A500B391A8 /* GameBoardController.swift in Sources */,
 				30B0A736239679A200E187A9 /* GameEntity.swift in Sources */,
 				30E4F11A233E2A1000DDC39C /* AppDelegate.swift in Sources */,
-				30E3EA31239E7F1600862569 /* GameControllerComponent.swift in Sources */,
 				30B0A74A2396A3D200E187A9 /* GameBoard.swift in Sources */,
 				302C945C23A90E9F00DEDFD5 /* GameBoardTile.swift in Sources */,
 				30E3EA35239E96A100862569 /* SKHuman.swift in Sources */,
@@ -537,17 +671,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3059EBE523AD1E4500B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */,
+				3059EBE923AD210E00B391A8 /* MovementComponent.swift in Sources */,
 				30B0A76A239718B700E187A9 /* DinosaurLogicComponent.swift in Sources */,
 				30B0A769239718B700E187A9 /* PlayerLogicComponent.swift in Sources */,
+				3059EBD323AD14CE00B391A8 /* EventData.swift in Sources */,
+				3059EBD123ABC1C200B391A8 /* Human+SpriteKitIntegration.swift in Sources */,
 				30B0A761239718B300E187A9 /* GameComponentSystem.swift in Sources */,
 				30B0A756239718AA00E187A9 /* GameBoard.swift in Sources */,
 				30E4F14A233E2A1000DDC39C /* GKScene+Load.swift in Sources */,
 				30B0A757239718AA00E187A9 /* SKBoardTileGrass.swift in Sources */,
+				3059EBB323AA7BA700B391A8 /* Settings.swift in Sources */,
+				3059EBCF23ABC1BF00B391A8 /* Player+SpriteKitIntegration.swift in Sources */,
+				3059EBDF23AD1E3900B391A8 /* CGPoint+Operations.swift in Sources */,
 				30B0A75A239718AF00E187A9 /* Actor.swift in Sources */,
 				30E4F12D233E2A1000DDC39C /* GameViewController.swift in Sources */,
+				3059EBE123AD1E3C00B391A8 /* CGRect+Operations.swift in Sources */,
 				30E4F12B233E2A1000DDC39C /* AppDelegate.swift in Sources */,
 				30E3EA2C239E783900862569 /* GameScene.swift in Sources */,
+				3059EBDD23AD1E3400B391A8 /* GKQuad+CGRect.swift in Sources */,
+				3059EBF423B0F80C00B391A8 /* SKShapeNode+BoardPath.swift in Sources */,
 				30B0A762239718B300E187A9 /* GameEntity.swift in Sources */,
+				3059EBE323AD1E4000B391A8 /* GKGraphNode2D+CGPoint.swift in Sources */,
+				3059EBD523AD14D400B391A8 /* BoardUserData.swift in Sources */,
+				3059EBDB23AD16B100B391A8 /* GameBoardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,17 +702,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3059EBE623AD1E4500B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */,
+				3059EBEA23AD210F00B391A8 /* MovementComponent.swift in Sources */,
 				30B0A76D239718B800E187A9 /* DinosaurLogicComponent.swift in Sources */,
 				30B0A76C239718B800E187A9 /* PlayerLogicComponent.swift in Sources */,
+				3059EBD423AD14CF00B391A8 /* EventData.swift in Sources */,
+				3059EBD223ABC1C300B391A8 /* Human+SpriteKitIntegration.swift in Sources */,
 				30B0A765239718B400E187A9 /* GameComponentSystem.swift in Sources */,
 				30B0A758239718AB00E187A9 /* GameBoard.swift in Sources */,
 				30E4F14B233E2A1000DDC39C /* GKScene+Load.swift in Sources */,
 				30B0A759239718AB00E187A9 /* SKBoardTileGrass.swift in Sources */,
+				3059EBB423AA7BA700B391A8 /* Settings.swift in Sources */,
+				3059EBD023ABC1C000B391A8 /* Player+SpriteKitIntegration.swift in Sources */,
+				3059EBE023AD1E3900B391A8 /* CGPoint+Operations.swift in Sources */,
 				30B0A75D239718B000E187A9 /* Actor.swift in Sources */,
 				30E4F13E233E2A1000DDC39C /* GameViewController.swift in Sources */,
+				3059EBE223AD1E3C00B391A8 /* CGRect+Operations.swift in Sources */,
 				30E4F13C233E2A1000DDC39C /* AppDelegate.swift in Sources */,
 				30E3EA2D239E783A00862569 /* GameScene.swift in Sources */,
+				3059EBDE23AD1E3500B391A8 /* GKQuad+CGRect.swift in Sources */,
+				3059EBF523B0F80C00B391A8 /* SKShapeNode+BoardPath.swift in Sources */,
 				30B0A766239718B400E187A9 /* GameEntity.swift in Sources */,
+				3059EBE423AD1E4100B391A8 /* GKGraphNode2D+CGPoint.swift in Sources */,
+				3059EBD623AD14D400B391A8 /* BoardUserData.swift in Sources */,
+				3059EBDC23AD16B100B391A8 /* GameBoardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
