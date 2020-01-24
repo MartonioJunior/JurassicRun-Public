@@ -6,17 +6,22 @@
 //  Copyright © 2019 martonio. All rights reserved.
 //
 
-import JurrasicRunBoard
-
 class SKDinosaur: Character {
     override func setupComponents(_ actor: Actor) -> GameEntity? {
         return GameEntity(with: [
             DinosaurLogicComponent(),
-            MovementComponent(speed: 60.0)
+            AnimationComponent(animationTags: ["Dinosaur-Run", "Dinosaur-Jump"]),
+            MovementComponent(speed: 120.0),
+            WalkActionComponent(),
+            RunActionComponent(),
+            JumpActionComponent(),
+            SniffActionComponent(),
+            SprintActionComponent(),
+            WaitActionComponent()
         ], for: self)
     }
 
-    override func getPlayer() -> Player? {
-        return self.entity?.component(ofType: DinosaurLogicComponent.self)?.dinosaur
+    override func getPlayer() -> PlayerLogicComponent? {
+        return self.entity()?.getComponent(ofType: DinosaurLogicComponent.self)
     }
 }

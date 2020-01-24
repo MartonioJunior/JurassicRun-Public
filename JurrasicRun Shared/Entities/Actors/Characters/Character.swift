@@ -6,10 +6,8 @@
 //  Copyright © 2019 martonio. All rights reserved.
 //
 
-import JurrasicRunBoard
-
 class Character: Actor {
-    func getPlayer() -> Player? {
+    func getPlayer() -> PlayerLogicComponent? {
         return nil
     }
 }

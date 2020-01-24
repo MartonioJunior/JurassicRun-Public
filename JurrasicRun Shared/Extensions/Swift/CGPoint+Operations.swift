@@ -39,4 +39,8 @@ extension CGPoint {
     func vector2() -> SIMD2<Float> {
         return [Float(self.x), Float(self.y)]
     }
+
+    static func create(from vector2: SIMD2<Float>) -> CGPoint {
+        return CGPoint(x: CGFloat(vector2.x), y: CGFloat(vector2.y))
+    }
 }

@@ -7,29 +7,67 @@
 //
 
 import GameplayKit
-import JurrasicRunBoard
 
-class GameBoardTile: BoardTile {
+class GameBoardTile {
     var graphNode: GKGraphNode2D
     weak var node: SKBoardTile?
-
-    override init(with terrain: BoardTile.Terrain, in board: Board) {
-        self.graphNode = GKGraphNode2D()
-        super.init(with: terrain, in: board)
+    public enum Terrain: String {
+        case normal
+        case grass
+        case mud
+        case goal
     }
 
-    init(for node: SKBoardTile, in board: GameBoard) {
-        let reference = node.parent?.parent ?? node
-        let point = reference.position
+    public var tilePosition: CGPoint?
+    public var terrain: Terrain
+    public var board: GameBoard?
+    public var idNumber: Int?
+    public var yellowPaths: [GameBoardTile]
+    public var bluePaths: [GameBoardTile]
+    public var redPaths: [GameBoardTile]
+
+    public var description: String {
+        guard let idNumber = idNumber else { return "" }
+        return "ID: \(idNumber)"
+    }
+
+    public var fullDescription: String {
+        var spaceString = description
+        spaceString += "\nType: \(terrain.rawValue)"
+        spaceString += "\nWalk to: |"
+        for path in yellowPaths {
+            spaceString += "S\(path.description)|"
+        }
+        spaceString += "\nRun to: |"
+        for path in bluePaths {
+            spaceString += "S\(path.description)|"
+        }
+        spaceString += "\nJump to: |"
+        for path in redPaths {
+            spaceString += "S\(path.description)|"
+        }
+        return spaceString+"|"
+    }
+
+    private init(with terrain: Terrain, in board: GameBoard) {
+        self.graphNode = GKGraphNode2D()
+        self.terrain = terrain
+        self.bluePaths = []
+        self.yellowPaths = []
+        self.redPaths = []
+        self.board = board
+        board.add(tile: self)
+    }
+
+    convenience init(for node: SKBoardTile, in board: GameBoard) {
+        self.init(with: node.type, in: board)
         self.node = node
-        self.graphNode = GKGraphNode2D.create(with: point)
-        super.init(with: node.type, in: board)
+        self.graphNode = GKGraphNode2D.create(with: node.position)
     }
 
     func setupTile() {
         // Configure BoardTile connections
-        let reference = node?.parent?.parent ?? node
-        guard let dict = reference?.userData as? [String: String],
+        guard let dict = node?.userData as? [String: String],
             let board = board else { return }
         let pathData = BoardUserData(dictionary: dict)
         join(pathsOn: board, ofType: .red, forTiles: pathData.redPaths)
@@ -37,21 +75,32 @@ class GameBoardTile: BoardTile {
         join(pathsOn: board, ofType: .yellow, forTiles: pathData.yellowPaths)
     }
 
-    func join(pathsOn board: Board, ofType pathType: Board.PathType, forTiles tileIDs: [Int]) {
-        guard let currentID = self.id else { return }
+    func join(pathsOn board: GameBoard, ofType pathType: GameBoard.PathType, forTiles tileIDs: [Int]) {
+        guard let currentID = self.idNumber else { return }
         for destinationID in tileIDs {
             board.createPath(from: currentID, to: destinationID, pathType)
         }
     }
 
-    func destinations(for pathType: Board.PathType) -> [GameBoardTile] {
+    func adjacentTiles() -> [GameBoardTile] {
+        var adjacentTiles: [GameBoardTile] = []
+        for item in redPaths+bluePaths+yellowPaths {
+            if adjacentTiles.contains(where: {$0.idNumber == item.idNumber}) {
+                continue
+            }
+            adjacentTiles.append(item)
+        }
+        return adjacentTiles
+    }
+
+    func destinations(for pathType: GameBoard.PathType) -> [GameBoardTile] {
         switch pathType {
         case .red:
-            return redPaths as? [GameBoardTile] ?? []
+            return redPaths
         case .blue:
-            return bluePaths as? [GameBoardTile] ?? []
+            return bluePaths
         case .yellow:
-            return yellowPaths as? [GameBoardTile] ?? []
+            return yellowPaths
         }
     }
 }

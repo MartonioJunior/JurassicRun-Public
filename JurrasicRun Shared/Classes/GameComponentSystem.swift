@@ -11,7 +11,18 @@ import GameplayKit
 class GameComponentSystem: GKComponentSystem<GKComponent> {
     enum Identifier: CaseIterable {
         case playerLogic
+        case humanLogic
         case dinosaurLogic
+        case animation
+        case playerAction
+        case walkAction
+        case runAction
+        case jumpAction
+        case sniffAction
+        case sprintAction
+        case waitAction
+        case movement
+        case stateMachine
     }
 
     static var allSystems: [GameComponentSystem.Identifier: GameComponentSystem] = {
@@ -26,8 +37,30 @@ class GameComponentSystem: GKComponentSystem<GKComponent> {
         switch identifier {
         case .playerLogic:
             super.init(componentClass: PlayerLogicComponent.self)
+        case .humanLogic:
+            super.init(componentClass: HumanLogicComponent.self)
         case .dinosaurLogic:
             super.init(componentClass: DinosaurLogicComponent.self)
+        case .animation:
+            super.init(componentClass: AnimationComponent.self)
+        case .playerAction:
+            super.init(componentClass: PlayerActionComponent.self)
+        case .walkAction:
+            super.init(componentClass: WalkActionComponent.self)
+        case .runAction:
+            super.init(componentClass: RunActionComponent.self)
+        case .jumpAction:
+            super.init(componentClass: JumpActionComponent.self)
+        case .sniffAction:
+            super.init(componentClass: SniffActionComponent.self)
+        case .sprintAction:
+            super.init(componentClass: SprintActionComponent.self)
+        case .waitAction:
+            super.init(componentClass: WaitActionComponent.self)
+        case .movement:
+            super.init(componentClass: MovementComponent.self)
+        case .stateMachine:
+            super.init(componentClass: StateMachineComponent.self)
         }
     }
 

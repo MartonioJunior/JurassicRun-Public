@@ -7,9 +7,8 @@
 //
 
 import SpriteKit
-import JurrasicRunBoard
 
 class SKBoardTile: SKSpriteNode {
     var boardTile: GameBoardTile?
-    var type: BoardTile.Terrain { return .normal }
+    var type: GameBoardTile.Terrain { return .normal }
 }

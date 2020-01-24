@@ -21,9 +21,12 @@ extension GKScene {
     }
 
     func loadGame() {
-        guard let scene = self.rootNode as? GameScene else { return }
+        guard let scene = self.getSKScene() else { return }
         // Get all scene nodes
         let allNodes = self.getAllNodes()
+        for node in allNodes {
+            node.removeFromReference()
+        }
 
         // Setup board
         guard let spaces = allNodes.filter({
@@ -36,6 +39,7 @@ extension GKScene {
         board.configureBoard()
         for path in [GameBoard.PathType.blue, GameBoard.PathType.yellow, GameBoard.PathType.red] {
             if let pathNode = SKShapeNode.create(on: board, for: path) {
+                pathNode.position = Settings.Scene.pathOffset
                 scene.addChild(pathNode)
             }
         }
@@ -46,7 +50,7 @@ extension GKScene {
         }) as? [Character] {
             for character in players {
                 if let overlappingTile = spaces.first(where: {
-                    return $0.scenePosition().distance(to: character.scenePosition()) < 1
+                    return $0.position.distance(to: character.position) < 1
                     })?.boardTile {
                     character.getPlayer()?.currentTile = overlappingTile
                 }
@@ -66,15 +70,15 @@ extension GKScene {
 
         // Load Game Controller
         let controller = GameBoardController()
-        let humans = PlayerLogicComponent.allHumans()
-        let dinosaurs = DinosaurLogicComponent.allDinosaurs()
+        let humans = HumanLogicComponent.all()
+        let dinosaurs = DinosaurLogicComponent.all()
         controller.load(board, humans: humans, dinosaurs: dinosaurs)
         controller.attach(to: scene)
     }
 
     func getAllNodes() -> [SKNode] {
         var nodes: [SKNode] = []
-        guard let sceneNode = self.rootNode as? GameScene else { return [] }
+        guard let sceneNode = self.getSKScene() else { return [] }
         self.load(node: sceneNode, to: &nodes)
         return nodes
     }
@@ -87,5 +91,9 @@ extension GKScene {
                 load(node: childNode, to: &nodes)
             }
         }
+    }
+
+    func getSKScene() -> GameScene? {
+        return self.rootNode as? GameScene
     }
 }

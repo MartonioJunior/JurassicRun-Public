@@ -7,14 +7,9 @@
 //
 
 import Foundation
-import JurrasicRunBoard
 
-extension Player {
+extension PlayerLogicComponent {
     func getController() -> GameBoardController? {
-        return self.delegate as? GameBoardController
-    }
-
-    @objc func getAssociatedNode() -> Character? {
-        return nil
+        return self.status as? GameBoardController
     }
 }

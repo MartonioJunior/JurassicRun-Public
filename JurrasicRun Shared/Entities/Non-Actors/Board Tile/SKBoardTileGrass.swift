@@ -7,8 +7,7 @@
 //
 
 import SpriteKit
-import JurrasicRunBoard
 
 class SKBoardTileGrass: SKBoardTile {
-    override var type: BoardTile.Terrain { return .grass }
+    override var type: GameBoardTile.Terrain { return .grass }
 }

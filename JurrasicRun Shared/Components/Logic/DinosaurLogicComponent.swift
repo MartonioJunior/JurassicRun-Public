@@ -7,26 +7,36 @@
 //
 
 import GameplayKit
-import JurrasicRunBoard
 
-class DinosaurLogicComponent: GKComponent {
-    var dinosaur: Dinosaur
-    weak var node: SKDinosaur?
+class DinosaurLogicComponent: PlayerLogicComponent {
+    public var isSprinting = false {
+        didSet {
+            amountOfMoves = isSprinting ? 7 : 5
+        }
+    }
 
-    override init() {
-        self.dinosaur = Dinosaur()
+    public override init() {
         super.init()
+        type = "Dinosaur"
+        amountOfMoves = 5
+        onTurnEnd = { controller in
+            for human in controller.humans {
+                if let humanID = human.currentTile?.idNumber,
+                    let dinosaurID = self.currentTile?.idNumber,
+                        humanID == dinosaurID,
+                    human.currentTile?.terrain != .goal {
+                    controller.results(.dinosaursWin)
+                    return false
+                }
+            }
+            return true
+        }
     }
 
-    override func didAddToEntity() {
-        self.node = self.entity()?.actor as? SKDinosaur
-    }
-
-    static func allDinosaurs() -> [Dinosaur] {
+    static func all() -> [DinosaurLogicComponent] {
         guard let components = GameComponentSystem.getSystem(.dinosaurLogic)?.components
             as? [DinosaurLogicComponent] else { return [] }
-        let dinosaur = components.map { $0.dinosaur }
-        return dinosaur
+        return components
     }
 
     required init?(coder: NSCoder) {
@@ -35,5 +45,9 @@ class DinosaurLogicComponent: GKComponent {
 
     override func update(deltaTime time: TimeInterval) {
 
+    }
+
+    public func toggleSprint() {
+        isSprinting = !isSprinting
     }
 }

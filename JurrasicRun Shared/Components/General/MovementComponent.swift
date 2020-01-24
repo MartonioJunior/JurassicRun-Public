@@ -33,10 +33,7 @@ class MovementComponent: GKComponent {
     // MARK: Properties
     var movementSpeed: Double
     var angularSpeed: Double = 0.5
-    var isMoving: Bool {
-        return nextTranslation != nil
-    }
-
+    var isMoving: Bool = false
     var nextTranslation: MovementKind?
     weak var node: Actor?
 
@@ -55,31 +52,25 @@ class MovementComponent: GKComponent {
     }
 
     override func update(deltaTime seconds: TimeInterval) {
-//        guard let nextTranslation = nextTranslation,
-//            let actor = node, !actor.hasActions(),
-//            let newPosition = nextPosition(for: actor, withTranslation: nextTranslation,
-//                                           duration: seconds) else { return }
-//        actor.position = newPosition
         guard let nextTranslation = nextTranslation,
-            let actor = node, !actor.hasActions() else { return }
+            let actor = node, !isMoving else { return }
         let movementTime = TimeInterval(nextTranslation.distance() / self.movementSpeed)
-        actor.run(SKAction.move(by: CGVector.create(from: nextTranslation.movementDelta), duration: movementTime)) {
-            print("Completed movement!")
+        let moveAction = SKAction.move(by: CGVector.create(from: nextTranslation.movementDelta),
+                                       duration: movementTime)
+        self.isMoving = true
+        actor.isPaused = false
+        actor.run(moveAction) {
             self.nextTranslation = nil
+            self.isMoving = false
+            self.entity()?.component(ofType: AnimationComponent.self)?.cancelAnimation()
         }
     }
 
-    func nextPosition(for node: SKNode, withTranslation translation: MovementKind, duration: TimeInterval) -> CGPoint? {
-        guard translation.movementDelta != SIMD2<Float>() else { return nil }
-        let movementDelta = translation.movementDelta
-        let angle = CGFloat(atan2(movementDelta.y, movementDelta.x))
-        let maxPossibleDistanceToMove = CGFloat(movementSpeed) * CGFloat(duration)
-        let normalizedMovementDelta = length(movementDelta) > 1.0 ? normalize(movementDelta) : movementDelta
-
-        let actualDistanceToMove = CGFloat(length(normalizedMovementDelta)) * maxPossibleDistanceToMove
-        let deltaX = actualDistanceToMove * cos(angle)
-        let deltaY = actualDistanceToMove * sin(angle)
-
-        return node.position.applying(CGAffineTransform(translationX: deltaX, y: deltaY))
+    func setNew(_ position: CGPoint) {
+        if let nodePoint = node?.position {
+            self.nextTranslation = MovementKind(from: nodePoint, to: position)
+        } else {
+            self.nextTranslation = MovementKind(from: CGPoint.zero, to: position)
+        }
     }
 }

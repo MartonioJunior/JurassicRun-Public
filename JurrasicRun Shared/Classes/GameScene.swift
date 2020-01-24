@@ -13,11 +13,13 @@ class GameScene: SKScene {
     weak var root: GKScene?
     var board: GameBoard?
     var controller: GameBoardController?
+    var interface: GameInterface?
     var spinnyNode: SKShapeNode?
 
     /// Variables to measure time
     var globalTimer: TimeInterval = 0
     var lastTime: TimeInterval = 0
+    var controlsEnabled: Bool = true
 
     static var buffer: Set<GameEntity> = []
     static var current: GKScene = GKScene.loadScene(number: 1)
@@ -28,11 +30,16 @@ class GameScene: SKScene {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        let _ = Camera(in: self)
     }
 
     func connectTo(_ root: GKScene) {
         self.root = root
         root.rootNode = self
+    }
+
+    func camera() -> Camera? {
+        return self.camera as? Camera
     }
 
     func setUpScene() {
@@ -47,9 +54,16 @@ class GameScene: SKScene {
         // Load Game information
         GameScene.current.loadGame()
 
-        // Debug touch interaction
+        // Setup game controls
         guard let scene = self.scene else { return }
+        self.setupControls()
+        self.interface = GameInterface(scene: self)
 
+        // Display game start!
+        guard let currentPlayer = controller?.currentPlayer else { return }
+        Transitions.pan(to: currentPlayer, on: self)
+
+        // Debug touch interaction
         let width = (scene.size.width + scene.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: width, height: width), cornerRadius: width * 0.3)
 
@@ -107,45 +121,40 @@ class GameScene: SKScene {
             entity.update(deltaTime: deltaTime)
         }
     }
+
+    override func willMove(from view: SKView) {
+        view.gestureRecognizers = []
+    }
 }
 
 #if os(iOS) || os(tvOS)
 // Touch-based event handling
 extension GameScene: UIResponderEvents {
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let scene = self.scene else { return }
         for touch in touches {
-            let location = touch.location(in: scene)
-            self.makeSpinny(at: location, color: SKColor.green)
-
-            let touchRect = GKQuad.create(in: location, withRadius: Settings.Input.touchRadius)
-            if let selectedSpace = board?.quadTree.elements(in: touchRect).first,
-                let selectedTile = selectedSpace.boardTile {
-                self.selected(tile: selectedTile, on: self)
-                selectedSpace.color = .blue
-            }
+            let location = TouchLocationData(touch)
+            self.makeSpinny(at: location.scene, color: SKColor.green)
         }
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let scene = self.scene else { return }
         for touch in touches {
-            self.makeSpinny(at: touch.location(in: scene), color: SKColor.blue)
+            let location = TouchLocationData(touch)
+            self.makeSpinny(at: location.scene, color: SKColor.blue)
         }
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let scene = self.scene else { return }
         for touch in touches {
-            self.makeSpinny(at: touch.location(in: scene), color: SKColor.red)
+            let location = TouchLocationData(touch)
+            self.makeSpinny(at: location.scene, color: SKColor.red)
         }
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let scene = self.scene else { return }
         for touch in touches {
-            self.makeSpinny(at: touch.location(in: scene), color: SKColor.red)
+            let location = TouchLocationData(touch)
+            self.makeSpinny(at: location.scene, color: SKColor.red)
         }
     }
 }
@@ -156,8 +165,13 @@ extension GameScene: UIResponderEvents {
 extension GameScene {
 
     override func mouseDown(with event: NSEvent) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+        let location = event.location(in: scene)
+        let touchRect = GKQuad.create(in: location, withRadius: Settings.Input.touchRadius)
+        if let selectedSpace = board?.quadTree.elements(in: touchRect).first,
+            let selectedTile = selectedSpace.boardTile {
+            self.selected(tile: selectedTile, on: self)
+            selectedSpace.color = .blue
+            self.camera?.move(toParent: selectedSpace)
         }
         self.makeSpinny(at: event.location(in: self), color: SKColor.green)
     }

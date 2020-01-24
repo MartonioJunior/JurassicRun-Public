@@ -10,7 +10,7 @@ import SpriteKit
 import CoreGraphics
 
 extension SKSpriteNode {
-    func scenePosition() -> CGPoint {
-        return self.parent?.parent?.position ?? self.position
-    }
+//    func scenePosition() -> CGPoint {
+//        return self.parent?.parent?.position ?? self.position
+//    }
 }

@@ -28,17 +28,16 @@ extension SKShapeNode {
     }
 
     static func generatePath(on board: GameBoard, for type: GameBoard.PathType) -> CGPath? {
-        guard let spaces = board.spaces as? [GameBoardTile] else { return nil }
         var connections: Set<String> = []
         let path: CGMutablePath = CGMutablePath()
-        for space in spaces {
+        for space in board.spaces {
             let possiblePaths = space.destinations(for: type)
             for destination in possiblePaths {
-                let connectionTag = "\(space.id)-\(destination.id)"
+                let connectionTag = "\(space.idNumber)-\(destination.idNumber)"
                 if connections.contains(connectionTag) { continue }
                 connections.insert(connectionTag)
-                if let startPosition = space.node?.scenePosition(),
-                    let endPosition = destination.node?.scenePosition() {
+                if let startPosition = space.node?.position,
+                    let endPosition = destination.node?.position {
                     path.move(to: startPosition)
                     path.addLine(to: endPosition)
                 }

@@ -6,17 +6,20 @@
 //  Copyright © 2019 martonio. All rights reserved.
 //
 
-import JurrasicRunBoard
-
 class SKHuman: Character {
     override func setupComponents(_ actor: Actor) -> GameEntity? {
         return GameEntity(with: [
-            PlayerLogicComponent(),
-            MovementComponent(speed: 60.0)
+            HumanLogicComponent(),
+            AnimationComponent(animationTags: ["Human-Run", "Human-Jump"]),
+            MovementComponent(speed: 60.0),
+            WalkActionComponent(),
+            RunActionComponent(),
+            JumpActionComponent(),
+            WaitActionComponent()
         ], for: self)
     }
 
-    override func getPlayer() -> Player? {
-        return self.entity?.component(ofType: PlayerLogicComponent.self)?.human
+    override func getPlayer() -> PlayerLogicComponent? {
+        return self.entity()?.getComponent(ofType: HumanLogicComponent.self)
     }
 }
