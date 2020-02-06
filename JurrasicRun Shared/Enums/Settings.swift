@@ -17,8 +17,12 @@ enum Settings {
     }
 
     struct Animation {
-        static let animationTime = 0.0625 // seconds
-        static var animationSpeed = 1.0
+        static let timePerFrame = 0.0625 // seconds
+        static var speed = 1.0
+
+        static let labelFadeInDefaultTime = 0.5 / Settings.Animation.speed // seconds
+        static let labelAppearenceTime = 3.0 / Settings.Animation.speed // seconds
+        static let labelFadeOutDefaultTime = 0.5 / Settings.Animation.speed // seconds
     }
 
     struct Debug {

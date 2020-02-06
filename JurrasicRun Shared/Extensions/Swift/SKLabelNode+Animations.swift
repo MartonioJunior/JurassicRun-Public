@@ -14,7 +14,10 @@ extension SKLabelNode {
     }
 
     func show(completion: (() -> Void)?) {
-        show(fadeIn: 0.5, wait: 3.0, fadeOut: 0.5, completion: completion)
+        let fadeInTime = Settings.Animation.labelFadeInDefaultTime
+        let appearenceTime = Settings.Animation.labelAppearenceTime
+        let fadeOutTime = Settings.Animation.labelFadeOutDefaultTime
+        show(fadeIn: fadeInTime, wait: appearenceTime, fadeOut: fadeOutTime, completion: completion)
     }
 
     static func show(_ label: SKLabelNode, fadeIn fadeInTime: TimeInterval,

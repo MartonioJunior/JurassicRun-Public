@@ -37,7 +37,7 @@ extension MovementAction where Self: PlayerActionComponent {
         // Defining animation settings for move
         let movement = MovementKind(from: playerNode.position, to: tileNode.position)
         let animationTag = getAnimationTag(for: type)
-        let animationTime = Settings.Animation.animationTime * Settings.Animation.animationSpeed
+        let animationTime = Settings.Animation.timePerFrame * Settings.Animation.speed
         let nodeSpeed = getSpeed(for: player, type: type)
 
         self.node?.getCameraFocus()
@@ -95,6 +95,6 @@ extension MovementAction where Self: PlayerActionComponent {
         case .red:
             actionModifier = 5.0
         }
-        return playerSpeed * actionModifier * Settings.Animation.animationSpeed
+        return playerSpeed * actionModifier * Settings.Animation.speed
     }
 }
