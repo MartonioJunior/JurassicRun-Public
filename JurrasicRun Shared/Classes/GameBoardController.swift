@@ -10,7 +10,7 @@ import SpriteKit
 
 class GameBoardController: PlayerStatus {
     var isPaused: Bool = false
-    var matchIsRunning: Bool = false
+    var matchIsRunning: Bool = true
     weak var scene: GameScene?
     public enum Result {
         case dinosaursWin
@@ -27,15 +27,9 @@ class GameBoardController: PlayerStatus {
     public var players: [PlayerLogicComponent] = []
     public var humans: [HumanLogicComponent] {
         return HumanLogicComponent.all()
-//        return players.filter {
-//            return $0 is HumanLogicComponent
-//        } as! [HumanLogicComponent]
     }
     public var dinosaurs: [DinosaurLogicComponent] {
         return DinosaurLogicComponent.all()
-//        return players.filter {
-//            return $0 is DinosaurLogicComponent
-//        } as! [DinosaurLogicComponent]
     }
 
     public init() {}
@@ -65,7 +59,8 @@ class GameBoardController: PlayerStatus {
     }
 
     public func reset() {
-        turnNumber = 1
+        turnNumber = 0
+        nextTurn()
     }
 
     public func nextPlayer() {
@@ -91,6 +86,7 @@ class GameBoardController: PlayerStatus {
 
     func results(_ type: GameBoardController.Result) {
         var text: String
+        matchIsRunning = false
         switch type {
         case .dinosaursWin:
             text = "Dinosaurs Win"
@@ -104,21 +100,25 @@ class GameBoardController: PlayerStatus {
         label.position = .zero
         label.alpha = 0
         camera.addChild(label)
-        label.show(fadeIn: 0.5, wait: 3.0, fadeOut: 0, completion: nil)
+        label.show(fadeIn: 0.5, wait: 3.0, fadeOut: 0) {
+            label.alpha = 1.0
+        }
     }
 
     func playerRevealed(_ player: PlayerLogicComponent) {
-        player.entity()?.actor?.run(SKAction.fadeAlpha(to: 1.0, duration: 0.5))
+        guard let actor = player.entity()?.actor else { return }
+        actor.run(SKAction.fadeAlpha(to: 1.0, duration: 0.5))
     }
 
     func playerHid(_ player: PlayerLogicComponent) {
-        player.entity()?.actor?.run(SKAction.fadeAlpha(to: 0.5, duration: 0.5))
+        guard let actor = player.entity()?.actor else { return }
+        actor.run(SKAction.fadeAlpha(to: 0.5, duration: 0.5))
     }
 
     func noMovesLeft(for player: PlayerLogicComponent) {
         // Interface sequence for next turn
-        self.nextPlayer()
-        guard let scene = self.scene else { return }
+        player.checkTurnEnd(on: self)
+        guard let scene = self.scene, matchIsRunning else { return }
         Transitions.pan(to: player, on: scene)
     }
 
@@ -131,6 +131,17 @@ class GameBoardController: PlayerStatus {
         player.currentTile = targetTile
         if player.movesLeft <= 0 {
             player.status?.noMovesLeft(for: player)
+        }
+    }
+
+    func player(_ player: PlayerLogicComponent, hasDoneAction action: PlayerActionComponent) {
+        if !action.canAct() {
+            guard let scene = self.scene,
+                let interface = scene.interface else { return }
+            interface.hideTileSelectionMenu(on: scene)
+            if player.movesLeft > 0 {
+                interface.showActionMenu(on: scene)
+            }
         }
     }
 

@@ -34,11 +34,18 @@ extension GameScene: UIGestureRecognizerDelegate {
     @objc func singleTap(_ recognizer: UITapGestureRecognizer) {
         print("Tap: \(recognizer.state.rawValue)")
         let location = TouchLocationData(recognizer)
-        let touchRect = GKQuad.create(in: location.scene, withRadius: Settings.Input.touchRadius)
-        if let selectedSpace = board?.quadTree.elements(in: touchRect).first,
-            let selectedTile = selectedSpace.boardTile {
-            interface?.selected(tile: selectedTile, on: self)
-            selectedSpace.color = .blue
+        let nodes = self.nodes(at: location.scene)
+        for node in nodes {
+            if let button = node as? SKButton {
+                button.selected()
+                break
+            }
+            if let selectedSpace = node as? SKBoardTile,
+                interface?.selectingTile == true,
+                let selectedTile = selectedSpace.boardTile {
+                interface?.selected(tile: selectedTile, on: self)
+                break
+            }
         }
     }
 

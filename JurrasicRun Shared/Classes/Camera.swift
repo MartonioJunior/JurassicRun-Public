@@ -40,7 +40,7 @@ class Camera: SKCameraNode {
     }
 
     func updateCameraPosition(_ recognizer: UILongPressGestureRecognizer) {
-        guard !lockControls else { return }
+        guard !lockControls, !lockPosition else { return }
         let location = TouchLocationData(recognizer)
         switch recognizer.state {
         case .began:
@@ -75,7 +75,7 @@ class Camera: SKCameraNode {
     }
 
     func updateCameraZoom(_ recognizer: UIPinchGestureRecognizer) {
-        guard !lockControls else { return }
+        guard !lockControls, !lockZoom else { return }
         let location = TouchLocationData(recognizer)
         switch recognizer.state {
         case .began:

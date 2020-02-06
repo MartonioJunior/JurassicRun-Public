@@ -34,19 +34,16 @@ class PlayerLogicComponent: GKComponent {
     public var currentTile: GameBoardTile? {
         didSet {
             guard let currentTile = currentTile else { return }
-            self.isHidden = currentTile.terrain == .grass && lastAction == .walk && self is HumanLogicComponent
+            self.isHidden = currentTile.terrain == .grass && self is HumanLogicComponent && (lastAction == .walk || lastAction == nil)
         }
     }
 
     public var lastAction: PlayerLogicComponent.Actions? {
         didSet {
-            guard let action = lastAction else { return }
-            switch action {
+            switch lastAction {
             case .run:
                 canJump = true
-            case .walk:
-                break
-            case .jump:
+            default:
                 canJump = false
             }
         }
@@ -116,7 +113,7 @@ class PlayerLogicComponent: GKComponent {
     }
 
     public func applyWait() {
-        movesLeft = 0
+        self.status?.noMovesLeft(for: self)
     }
 
     public func refillMoves() {
@@ -148,7 +145,7 @@ class PlayerLogicComponent: GKComponent {
         self.node = self.entity()?.actor as? Character
     }
 
-    func move(type: GameBoard.PathType, to destination: GameBoardTile) {
+    func move(type: GameBoard.PathType, to destination: GameBoardTile, completion: (() -> Void)? = nil) {
         var component: PlayerActionComponent.Type
         switch type {
         case .yellow:

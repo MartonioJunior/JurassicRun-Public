@@ -17,11 +17,11 @@ class SniffActionComponent: PlayerActionComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func act(extraInfo: [String: Any]) {
-        guard let referenceTile = extraInfo["fromTile"] as? GameBoardTile else { return }
+    override func act(extraInfo: [String: Any]) -> Bool {
+        guard let player = self.node?.getPlayer(), let referenceTile = player.currentTile else { return false }
         revealCharacters(from: referenceTile)
-        guard let player = self.node?.getPlayer() else { return }
         player.applyWait()
+        return true
     }
 
     override func canAct() -> Bool {
@@ -30,15 +30,18 @@ class SniffActionComponent: PlayerActionComponent {
     }
 
     private func revealCharacters(from tile: GameBoardTile) {
-        guard let players = self.node?.getPlayer()?.getController()?.players else { return }
+        guard let character = self.node?.getPlayer(),
+            let players = character.getController()?.players else { return }
         let tilesToReveal: [GameBoardTile] = getAdjacentTiles(from: tile, distance: 1)
-        for player in players where tilesToReveal.contains(where: {$0.idNumber == player.currentTile?.idNumber}) {
+        for player in players where tilesToReveal.contains(where: {$0.idNumber == player.currentTile?.idNumber})
+            && player != character {
             player.isHidden = false
+            character.status?.playerRevealed(player)
         }
     }
 
     func getAdjacentTiles(from tile: GameBoardTile, distance: Int) -> [GameBoardTile] {
-        guard distance <= 0 else { return [] }
+        guard distance > 0 else { return [] }
         guard distance < 3 else { return [tile] }
         var adjacentTiles: [GameBoardTile] = tile.adjacentTiles()
         for adjacentTile in tile.adjacentTiles() {

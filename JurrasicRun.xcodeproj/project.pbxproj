@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		302C945C23A90E9F00DEDFD5 /* GameBoardTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945B23A90E9F00DEDFD5 /* GameBoardTile.swift */; };
 		302C945E23A914F300DEDFD5 /* SKBoardTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945D23A914F300DEDFD5 /* SKBoardTile.swift */; };
-		302C946023A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */; };
 		302C946323A9237400DEDFD5 /* BoardUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C946223A9237400DEDFD5 /* BoardUserData.swift */; };
+		304B241223E8B03200F6A272 /* GameGraphNode2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B241123E8B03200F6A272 /* GameGraphNode2D.swift */; };
+		304B241623E9AD0D00F6A272 /* BoardMoveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B241523E9AD0D00F6A272 /* BoardMoveData.swift */; };
+		304B241723E9AD0D00F6A272 /* BoardMoveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B241523E9AD0D00F6A272 /* BoardMoveData.swift */; };
+		304B241823E9AD0D00F6A272 /* BoardMoveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B241523E9AD0D00F6A272 /* BoardMoveData.swift */; };
 		3050568E23C3631F00C5034A /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050568D23C3631F00C5034A /* AnimationComponent.swift */; };
 		3050569023C36C5100C5034A /* SKTextureAtlas+LoadTextures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050568F23C36C5100C5034A /* SKTextureAtlas+LoadTextures.swift */; };
 		3050569223C36E2E00C5034A /* StateMachineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050569123C36E2E00C5034A /* StateMachineComponent.swift */; };
@@ -127,8 +130,6 @@
 		3059EBE023AD1E3900B391A8 /* CGPoint+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA623AA5D2400B391A8 /* CGPoint+Operations.swift */; };
 		3059EBE123AD1E3C00B391A8 /* CGRect+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBB123AA709E00B391A8 /* CGRect+Operations.swift */; };
 		3059EBE223AD1E3C00B391A8 /* CGRect+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBB123AA709E00B391A8 /* CGRect+Operations.swift */; };
-		3059EBE323AD1E4000B391A8 /* GKGraphNode2D+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */; };
-		3059EBE423AD1E4100B391A8 /* GKGraphNode2D+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */; };
 		3059EBE523AD1E4500B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA823AA657800B391A8 /* SKSpriteNode+ScenePosition.swift */; };
 		3059EBE623AD1E4500B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBA823AA657800B391A8 /* SKSpriteNode+ScenePosition.swift */; };
 		3059EBE823AD1E6E00B391A8 /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059EBE723AD1E6E00B391A8 /* MovementComponent.swift */; };
@@ -250,9 +251,6 @@
 		30ED0CB123DB2E3500CF13D9 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CB023DB2E3500CF13D9 /* ViewCode.swift */; };
 		30ED0CB223DB2E3500CF13D9 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CB023DB2E3500CF13D9 /* ViewCode.swift */; };
 		30ED0CB323DB2E3500CF13D9 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CB023DB2E3500CF13D9 /* ViewCode.swift */; };
-		30ED0CB523DB2F0D00CF13D9 /* SKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CB423DB2F0D00CF13D9 /* SKViewController.swift */; };
-		30ED0CB623DB2F0D00CF13D9 /* SKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CB423DB2F0D00CF13D9 /* SKViewController.swift */; };
-		30ED0CB723DB2F0D00CF13D9 /* SKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CB423DB2F0D00CF13D9 /* SKViewController.swift */; };
 		30ED0CC423DB3C7400CF13D9 /* InterfaceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CBF23DB3C7300CF13D9 /* InterfaceComponent.swift */; };
 		30ED0CC523DB3C7400CF13D9 /* InterfaceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CBF23DB3C7300CF13D9 /* InterfaceComponent.swift */; };
 		30ED0CC623DB3C7400CF13D9 /* InterfaceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CBF23DB3C7300CF13D9 /* InterfaceComponent.swift */; };
@@ -262,13 +260,26 @@
 		30ED0CD423DB44DF00CF13D9 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CD323DB44DF00CF13D9 /* Transitions.swift */; };
 		30ED0CD523DB44DF00CF13D9 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CD323DB44DF00CF13D9 /* Transitions.swift */; };
 		30ED0CD623DB44DF00CF13D9 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CD323DB44DF00CF13D9 /* Transitions.swift */; };
+		30ED0CD923E0635200CF13D9 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CD823E0635200CF13D9 /* ActionView.swift */; };
+		30ED0CDA23E0635200CF13D9 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CD823E0635200CF13D9 /* ActionView.swift */; };
+		30ED0CDB23E0635200CF13D9 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CD823E0635200CF13D9 /* ActionView.swift */; };
+		30ED0CDE23E0652900CF13D9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CDD23E0652800CF13D9 /* GameView.swift */; };
+		30ED0CDF23E0652900CF13D9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CDD23E0652800CF13D9 /* GameView.swift */; };
+		30ED0CE023E0652900CF13D9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CDD23E0652800CF13D9 /* GameView.swift */; };
+		30ED0CE223E0676700CF13D9 /* SKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CE123E0676700CF13D9 /* SKViewController.swift */; };
+		30ED0CE323E0676700CF13D9 /* SKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CE123E0676700CF13D9 /* SKViewController.swift */; };
+		30ED0CE423E0676700CF13D9 /* SKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CE123E0676700CF13D9 /* SKViewController.swift */; };
+		30ED0CE623E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CE523E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift */; };
+		30ED0CE723E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CE523E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift */; };
+		30ED0CE823E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ED0CE523E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		302C945B23A90E9F00DEDFD5 /* GameBoardTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardTile.swift; sourceTree = "<group>"; };
 		302C945D23A914F300DEDFD5 /* SKBoardTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBoardTile.swift; sourceTree = "<group>"; };
-		302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKGraphNode2D+CGPoint.swift"; sourceTree = "<group>"; };
 		302C946223A9237400DEDFD5 /* BoardUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardUserData.swift; sourceTree = "<group>"; };
+		304B241123E8B03200F6A272 /* GameGraphNode2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGraphNode2D.swift; sourceTree = "<group>"; };
+		304B241523E9AD0D00F6A272 /* BoardMoveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardMoveData.swift; sourceTree = "<group>"; };
 		3050568D23C3631F00C5034A /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
 		3050568F23C36C5100C5034A /* SKTextureAtlas+LoadTextures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKTextureAtlas+LoadTextures.swift"; sourceTree = "<group>"; };
 		3050569123C36E2E00C5034A /* StateMachineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachineComponent.swift; sourceTree = "<group>"; };
@@ -371,10 +382,13 @@
 		30ED0CA223DB23C600CF13D9 /* SKBoardTileGoal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SKBoardTileGoal.sks; sourceTree = "<group>"; };
 		30ED0CA723DB267900CF13D9 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		30ED0CB023DB2E3500CF13D9 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
-		30ED0CB423DB2F0D00CF13D9 /* SKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKViewController.swift; sourceTree = "<group>"; };
 		30ED0CBF23DB3C7300CF13D9 /* InterfaceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceComponent.swift; sourceTree = "<group>"; };
 		30ED0CCA23DB3C9900CF13D9 /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
 		30ED0CD323DB44DF00CF13D9 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
+		30ED0CD823E0635200CF13D9 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
+		30ED0CDD23E0652800CF13D9 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		30ED0CE123E0676700CF13D9 /* SKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKViewController.swift; sourceTree = "<group>"; };
+		30ED0CE523E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+DegreeRadianConversion.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +420,7 @@
 		302C946123A91A4300DEDFD5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				304B241523E9AD0D00F6A272 /* BoardMoveData.swift */,
 				302C946223A9237400DEDFD5 /* BoardUserData.swift */,
 				30EB90B723D5ED3B00BF3F0C /* Camera.swift */,
 				30B0A7492396A3D200E187A9 /* GameBoard.swift */,
@@ -538,8 +553,9 @@
 				3059EBA623AA5D2400B391A8 /* CGPoint+Operations.swift */,
 				3059EBB123AA709E00B391A8 /* CGRect+Operations.swift */,
 				3059EBF023AD36C100B391A8 /* CGVector+Operations.swift */,
+				30ED0CE523E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift */,
+				304B241123E8B03200F6A272 /* GameGraphNode2D.swift */,
 				3059EBEC23AD276F00B391A8 /* GKComponent+GameEntity.swift */,
-				302C945F23A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift */,
 				3059EBAF23AA6D9B00B391A8 /* GKQuad+CGRect.swift */,
 				30E4F110233E2A0A00DDC39C /* GKScene+Load.swift */,
 				30EB90C523D7A50B00BF3F0C /* SKLabelNode+Animations.swift */,
@@ -770,8 +786,8 @@
 		30E4F15C233E2A3B00DDC39C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3059EBDA23AD165100B391A8 /* Swift */,
 				3059EBD923AD163A00B391A8 /* JurassicRunBoard */,
+				3059EBDA23AD165100B391A8 /* Swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -779,7 +795,7 @@
 		30E4F15D233E2A4B00DDC39C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				30ED0CB423DB2F0D00CF13D9 /* SKViewController.swift */,
+				30ED0CE123E0676700CF13D9 /* SKViewController.swift */,
 				30ED0CA723DB267900CF13D9 /* ActionViewController.swift */,
 			);
 			path = Controllers;
@@ -825,8 +841,9 @@
 			isa = PBXGroup;
 			children = (
 				30ED0CD323DB44DF00CF13D9 /* Transitions.swift */,
-				30ED0CCE23DB3CDC00CF13D9 /* Elements */,
 				30E4F15D233E2A4B00DDC39C /* Controllers */,
+				30ED0CCE23DB3CDC00CF13D9 /* Elements */,
+				30ED0CD723E0631E00CF13D9 /* Views */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -837,6 +854,15 @@
 				30ED0CCA23DB3C9900CF13D9 /* SKButton.swift */,
 			);
 			path = Elements;
+			sourceTree = "<group>";
+		};
+		30ED0CD723E0631E00CF13D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30ED0CDD23E0652800CF13D9 /* GameView.swift */,
+				30ED0CD823E0635200CF13D9 /* ActionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1037,6 +1063,7 @@
 				30B0A793239A755F00E187A9 /* GameScene.swift in Sources */,
 				3050570423C4E08F00C5034A /* PlayerActionComponent.swift in Sources */,
 				305056D223C383C300C5034A /* OutOfGamePlayerState.swift in Sources */,
+				304B241623E9AD0D00F6A272 /* BoardMoveData.swift in Sources */,
 				3059EBCC23ABBE1200B391A8 /* Player+SpriteKitIntegration.swift in Sources */,
 				305056B823C3808500C5034A /* InactiveActorState.swift in Sources */,
 				30E3EA33239E969600862569 /* SKDinosaur.swift in Sources */,
@@ -1045,6 +1072,7 @@
 				3050570823C4E25500C5034A /* WalkActionComponent.swift in Sources */,
 				30ED0C9F23DB23B700CF13D9 /* SKBoardTileGoal.swift in Sources */,
 				305056A723C3776000C5034A /* DuringGameState.swift in Sources */,
+				30ED0CDE23E0652900CF13D9 /* GameView.swift in Sources */,
 				3059EBF323B0EF8000B391A8 /* SKShapeNode+BoardPath.swift in Sources */,
 				3059EBED23AD276F00B391A8 /* GKComponent+GameEntity.swift in Sources */,
 				30B0A7532397161600E187A9 /* HumanLogicComponent.swift in Sources */,
@@ -1057,9 +1085,12 @@
 				3050568E23C3631F00C5034A /* AnimationComponent.swift in Sources */,
 				3059EBAB23AA694100B391A8 /* Settings.swift in Sources */,
 				3059EBA523AA55F800B391A8 /* Character.swift in Sources */,
+				30ED0CD923E0635200CF13D9 /* ActionView.swift in Sources */,
+				30ED0CE223E0676700CF13D9 /* SKViewController.swift in Sources */,
 				30E4F149233E2A1000DDC39C /* GKScene+Load.swift in Sources */,
 				305056C523C382F000C5034A /* RevealedPlayerState.swift in Sources */,
 				30ED0CD423DB44DF00CF13D9 /* Transitions.swift in Sources */,
+				30ED0CE623E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift in Sources */,
 				3050571C23C60A0200C5034A /* WaitActionComponent.swift in Sources */,
 				3050569A23C3726E00C5034A /* GameState.swift in Sources */,
 				3059EBE823AD1E6E00B391A8 /* MovementComponent.swift in Sources */,
@@ -1074,8 +1105,8 @@
 				3059EBBE23AA805500B391A8 /* GameInterface.swift in Sources */,
 				30ED0CCB23DB3C9900CF13D9 /* SKButton.swift in Sources */,
 				30EB90BC23D613B900BF3F0C /* TouchLocationData.swift in Sources */,
+				304B241223E8B03200F6A272 /* GameGraphNode2D.swift in Sources */,
 				3059EBB023AA6D9B00B391A8 /* GKQuad+CGRect.swift in Sources */,
-				30ED0CB523DB2F0D00CF13D9 /* SKViewController.swift in Sources */,
 				3050571023C4E26D00C5034A /* JumpActionComponent.swift in Sources */,
 				30EB90B823D5ED3B00BF3F0C /* Camera.swift in Sources */,
 				305056E723C3845300C5034A /* WonPlayerState.swift in Sources */,
@@ -1086,7 +1117,6 @@
 				305056AF23C3778600C5034A /* GamePausedState.swift in Sources */,
 				305056EB23C3845E00C5034A /* LostPlayerState.swift in Sources */,
 				30ED0CC423DB3C7400CF13D9 /* InterfaceComponent.swift in Sources */,
-				302C946023A91A3D00DEDFD5 /* GKGraphNode2D+CGPoint.swift in Sources */,
 				305056CE23C3837600C5034A /* ActingPlayerState.swift in Sources */,
 				305056F723C4CF7500C5034A /* OutOfTheGameStateMachine.swift in Sources */,
 				30E4F11C233E2A1000DDC39C /* GameViewController.swift in Sources */,
@@ -1120,10 +1150,11 @@
 				305056B923C3808500C5034A /* InactiveActorState.swift in Sources */,
 				30EB90C723D7A51F00BF3F0C /* SKLabelNode+Animations.swift in Sources */,
 				3059EBE523AD1E4500B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */,
+				304B241723E9AD0D00F6A272 /* BoardMoveData.swift in Sources */,
 				3059EBE923AD210E00B391A8 /* MovementComponent.swift in Sources */,
 				30B0A76A239718B700E187A9 /* DinosaurLogicComponent.swift in Sources */,
+				30ED0CE323E0676700CF13D9 /* SKViewController.swift in Sources */,
 				3050570923C4E25500C5034A /* WalkActionComponent.swift in Sources */,
-				30ED0CB623DB2F0D00CF13D9 /* SKViewController.swift in Sources */,
 				30B0A769239718B700E187A9 /* HumanLogicComponent.swift in Sources */,
 				305056F423C4CC0400C5034A /* PlayerStateMachine.swift in Sources */,
 				3050571523C4E27A00C5034A /* SniffActionComponent.swift in Sources */,
@@ -1140,6 +1171,7 @@
 				3050571123C4E26D00C5034A /* JumpActionComponent.swift in Sources */,
 				3059EBB323AA7BA700B391A8 /* Settings.swift in Sources */,
 				3059EBCF23ABC1BF00B391A8 /* Player+SpriteKitIntegration.swift in Sources */,
+				30ED0CDF23E0652900CF13D9 /* GameView.swift in Sources */,
 				305056C223C3826000C5034A /* HiddenPlayerState.swift in Sources */,
 				3059EBDF23AD1E3900B391A8 /* CGPoint+Operations.swift in Sources */,
 				305056CA23C3833400C5034A /* WaitingPlayerState.swift in Sources */,
@@ -1164,6 +1196,7 @@
 				305056B023C3778600C5034A /* GamePausedState.swift in Sources */,
 				305056E823C3845300C5034A /* WonPlayerState.swift in Sources */,
 				3059EBDD23AD1E3400B391A8 /* GKQuad+CGRect.swift in Sources */,
+				30ED0CE723E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift in Sources */,
 				30EB90BD23D613B900BF3F0C /* TouchLocationData.swift in Sources */,
 				305056E023C3843E00C5034A /* WinningPlayerState.swift in Sources */,
 				3059EBF423B0F80C00B391A8 /* SKShapeNode+BoardPath.swift in Sources */,
@@ -1173,12 +1206,12 @@
 				30ED0CA923DB267900CF13D9 /* ActionViewController.swift in Sources */,
 				3078270423CA49A1004DB052 /* MovementAction.swift in Sources */,
 				305056D323C383C300C5034A /* OutOfGamePlayerState.swift in Sources */,
+				30ED0CDA23E0635200CF13D9 /* ActionView.swift in Sources */,
 				305056BD23C3809100C5034A /* PausedActorState.swift in Sources */,
 				3050569E23C3772A00C5034A /* GameStateMachine.swift in Sources */,
 				30EB90C123D72CE400BF3F0C /* GameScene+Controls.swift in Sources */,
 				305056B523C3807400C5034A /* ActiveActorState.swift in Sources */,
 				30ED0C9C23DB218200CF13D9 /* SKBoardTileMud.swift in Sources */,
-				3059EBE323AD1E4000B391A8 /* GKGraphNode2D+CGPoint.swift in Sources */,
 				305056CF23C3837600C5034A /* ActingPlayerState.swift in Sources */,
 				3059EBD523AD14D400B391A8 /* BoardUserData.swift in Sources */,
 				3059EBDB23AD16B100B391A8 /* GameBoardController.swift in Sources */,
@@ -1194,10 +1227,11 @@
 				305056BA23C3808500C5034A /* InactiveActorState.swift in Sources */,
 				30EB90C823D7A52000BF3F0C /* SKLabelNode+Animations.swift in Sources */,
 				3059EBE623AD1E4500B391A8 /* SKSpriteNode+ScenePosition.swift in Sources */,
+				304B241823E9AD0D00F6A272 /* BoardMoveData.swift in Sources */,
 				3059EBEA23AD210F00B391A8 /* MovementComponent.swift in Sources */,
 				30B0A76D239718B800E187A9 /* DinosaurLogicComponent.swift in Sources */,
+				30ED0CE423E0676700CF13D9 /* SKViewController.swift in Sources */,
 				3050570A23C4E25500C5034A /* WalkActionComponent.swift in Sources */,
-				30ED0CB723DB2F0D00CF13D9 /* SKViewController.swift in Sources */,
 				30B0A76C239718B800E187A9 /* HumanLogicComponent.swift in Sources */,
 				305056F523C4CC0400C5034A /* PlayerStateMachine.swift in Sources */,
 				3050571623C4E27A00C5034A /* SniffActionComponent.swift in Sources */,
@@ -1214,6 +1248,7 @@
 				3050571223C4E26D00C5034A /* JumpActionComponent.swift in Sources */,
 				3059EBB423AA7BA700B391A8 /* Settings.swift in Sources */,
 				3059EBD023ABC1C000B391A8 /* Player+SpriteKitIntegration.swift in Sources */,
+				30ED0CE023E0652900CF13D9 /* GameView.swift in Sources */,
 				305056C323C3826000C5034A /* HiddenPlayerState.swift in Sources */,
 				3059EBE023AD1E3900B391A8 /* CGPoint+Operations.swift in Sources */,
 				305056CB23C3833400C5034A /* WaitingPlayerState.swift in Sources */,
@@ -1238,6 +1273,7 @@
 				305056B123C3778600C5034A /* GamePausedState.swift in Sources */,
 				305056E923C3845300C5034A /* WonPlayerState.swift in Sources */,
 				3059EBDE23AD1E3500B391A8 /* GKQuad+CGRect.swift in Sources */,
+				30ED0CE823E06F2E00CF13D9 /* Double+DegreeRadianConversion.swift in Sources */,
 				30EB90BE23D613B900BF3F0C /* TouchLocationData.swift in Sources */,
 				305056E123C3843E00C5034A /* WinningPlayerState.swift in Sources */,
 				3059EBF523B0F80C00B391A8 /* SKShapeNode+BoardPath.swift in Sources */,
@@ -1247,12 +1283,12 @@
 				30ED0CAA23DB267900CF13D9 /* ActionViewController.swift in Sources */,
 				3078270523CA49A1004DB052 /* MovementAction.swift in Sources */,
 				305056D423C383C300C5034A /* OutOfGamePlayerState.swift in Sources */,
+				30ED0CDB23E0635200CF13D9 /* ActionView.swift in Sources */,
 				305056BE23C3809100C5034A /* PausedActorState.swift in Sources */,
 				3050569F23C3772B00C5034A /* GameStateMachine.swift in Sources */,
 				30EB90C223D72CE400BF3F0C /* GameScene+Controls.swift in Sources */,
 				305056B623C3807400C5034A /* ActiveActorState.swift in Sources */,
 				30ED0C9D23DB218200CF13D9 /* SKBoardTileMud.swift in Sources */,
-				3059EBE423AD1E4100B391A8 /* GKGraphNode2D+CGPoint.swift in Sources */,
 				305056D023C3837600C5034A /* ActingPlayerState.swift in Sources */,
 				3059EBD623AD14D400B391A8 /* BoardUserData.swift in Sources */,
 				3059EBDC23AD16B100B391A8 /* GameBoardController.swift in Sources */,

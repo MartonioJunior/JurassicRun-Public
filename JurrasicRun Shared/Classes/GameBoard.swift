@@ -96,4 +96,43 @@ class GameBoard {
         guard !nodeA.connectedNodes.contains(nodeB) else { return }
         nodeA.addConnections(to: [nodeB], bidirectional: true)
     }
+
+    func path(from tileA: GameBoardTile, to tileB: GameBoardTile,
+              pathType: GameBoard.PathType? = nil) -> [BoardMoveData]? {
+        var frontier: [[BoardMoveData]] = [[]] {
+            didSet {
+                frontier.sort { $0.count < $1.count }
+            }
+        }
+        var idVisitedNodes: Set<Int> = []
+
+        frontier.append([BoardMoveData(tile: tileA, path: nil)])
+
+        while !frontier.isEmpty {
+            let cheapestPath = frontier.removeFirst()
+            guard let lastMove = cheapestPath.last,
+                let idNode = lastMove.tile.idNumber,
+                !idVisitedNodes.contains(idNode) else { continue }
+
+            if idNode == tileB.idNumber {
+                return cheapestPath
+            }
+
+            idVisitedNodes.insert(idNode)
+            var connections: [GameBoardTile]
+            if let pathType = pathType {
+                connections = lastMove.tile.destinations(for: pathType)
+            } else {
+                connections = lastMove.tile.adjacentTiles()
+            }
+
+            for connection in connections {
+                guard let idConnection = connection.idNumber,
+                    !idVisitedNodes.contains(idConnection),
+                    let path = lastMove.tile.path(for: connection) else { continue }
+                frontier.append(cheapestPath + [BoardMoveData(tile: connection, path: path)])
+            }
+        }
+        return nil
+    }
 }

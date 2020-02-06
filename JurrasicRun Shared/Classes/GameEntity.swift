@@ -38,4 +38,21 @@ class GameEntity: GKEntity {
         if let component = super.component(ofType: componentClass) { return component }
         return components.first(where: { $0.self.isKind(of: componentClass) }) as? ComponentType
     }
+
+    func allComponents<ComponentType>(ofType componentClass: ComponentType.Type)
+        -> [ComponentType] where ComponentType: GKComponent {
+        return components.filter {
+            return $0.self.isKind(of: componentClass)
+        } as? [ComponentType] ?? []
+    }
+
+    func attachComponent(_ component: GKComponent) {
+        addComponent(component)
+        GameComponentSystem.addComponent(component)
+    }
+
+    func deleteComponent<ComponentType>(ofType componentClass: ComponentType.Type) where ComponentType : GKComponent {
+        GameComponentSystem.getSystem(ofType: componentClass)?.removeComponent(foundIn: self)
+        removeComponent(ofType: componentClass)
+    }
 }

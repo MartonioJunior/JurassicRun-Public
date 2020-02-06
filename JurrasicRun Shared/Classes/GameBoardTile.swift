@@ -9,7 +9,7 @@
 import GameplayKit
 
 class GameBoardTile {
-    var graphNode: GKGraphNode2D
+    var graphNode: GameGraphNode2D
     weak var node: SKBoardTile?
     public enum Terrain: String {
         case normal
@@ -50,7 +50,7 @@ class GameBoardTile {
     }
 
     private init(with terrain: Terrain, in board: GameBoard) {
-        self.graphNode = GKGraphNode2D()
+        self.graphNode = GameGraphNode2D(with: .zero)
         self.terrain = terrain
         self.bluePaths = []
         self.yellowPaths = []
@@ -62,7 +62,7 @@ class GameBoardTile {
     convenience init(for node: SKBoardTile, in board: GameBoard) {
         self.init(with: node.type, in: board)
         self.node = node
-        self.graphNode = GKGraphNode2D.create(with: node.position)
+        self.graphNode = GameGraphNode2D(with: node.position)
     }
 
     func setupTile() {
@@ -102,5 +102,12 @@ class GameBoardTile {
         case .yellow:
             return yellowPaths
         }
+    }
+
+    func path(for tile: GameBoardTile) -> GameBoard.PathType? {
+        if redPaths.contains(where: { $0.idNumber == tile.idNumber }) { return .red }
+        if yellowPaths.contains(where: { $0.idNumber == tile.idNumber }) { return .yellow }
+        if bluePaths.contains(where: { $0.idNumber == tile.idNumber }) { return .blue }
+        return nil
     }
 }

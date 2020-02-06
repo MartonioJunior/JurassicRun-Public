@@ -23,6 +23,40 @@ class GameComponentSystem: GKComponentSystem<GKComponent> {
         case waitAction
         case movement
         case stateMachine
+        case interface
+
+        func type() -> GKComponent.Type {
+            switch self {
+            case .playerLogic:
+                return PlayerLogicComponent.self
+            case .humanLogic:
+                return HumanLogicComponent.self
+            case .dinosaurLogic:
+                return DinosaurLogicComponent.self
+            case .animation:
+                return AnimationComponent.self
+            case .playerAction:
+                return PlayerActionComponent.self
+            case .walkAction:
+                return WalkActionComponent.self
+            case .runAction:
+                return RunActionComponent.self
+            case .jumpAction:
+                return JumpActionComponent.self
+            case .sniffAction:
+                return SniffActionComponent.self
+            case .sprintAction:
+                return SprintActionComponent.self
+            case .waitAction:
+                return WaitActionComponent.self
+            case .movement:
+                return MovementComponent.self
+            case .stateMachine:
+                return StateMachineComponent.self
+            case .interface:
+                return InterfaceComponent.self
+            }
+        }
     }
 
     static var allSystems: [GameComponentSystem.Identifier: GameComponentSystem] = {
@@ -34,34 +68,7 @@ class GameComponentSystem: GKComponentSystem<GKComponent> {
     }()
 
     init(_ identifier: GameComponentSystem.Identifier) {
-        switch identifier {
-        case .playerLogic:
-            super.init(componentClass: PlayerLogicComponent.self)
-        case .humanLogic:
-            super.init(componentClass: HumanLogicComponent.self)
-        case .dinosaurLogic:
-            super.init(componentClass: DinosaurLogicComponent.self)
-        case .animation:
-            super.init(componentClass: AnimationComponent.self)
-        case .playerAction:
-            super.init(componentClass: PlayerActionComponent.self)
-        case .walkAction:
-            super.init(componentClass: WalkActionComponent.self)
-        case .runAction:
-            super.init(componentClass: RunActionComponent.self)
-        case .jumpAction:
-            super.init(componentClass: JumpActionComponent.self)
-        case .sniffAction:
-            super.init(componentClass: SniffActionComponent.self)
-        case .sprintAction:
-            super.init(componentClass: SprintActionComponent.self)
-        case .waitAction:
-            super.init(componentClass: WaitActionComponent.self)
-        case .movement:
-            super.init(componentClass: MovementComponent.self)
-        case .stateMachine:
-            super.init(componentClass: StateMachineComponent.self)
-        }
+        super.init(componentClass: identifier.type())
     }
 
     override init() {
@@ -70,6 +77,21 @@ class GameComponentSystem: GKComponentSystem<GKComponent> {
 
     static func getSystem(_ identifier: GameComponentSystem.Identifier) -> GameComponentSystem? {
         return GameComponentSystem.allSystems[identifier]
+    }
+
+    static func addComponent(_ component: GKComponent) {
+        let systems = GameComponentSystem.allSystems.values.filter {
+            return component.isKind(of: $0.componentClass)
+        }
+        for system in systems {
+            system.addComponent(component)
+        }
+    }
+
+    static func getSystem(ofType componentClass: GKComponent.Type) -> GameComponentSystem? {
+        return GameComponentSystem.allSystems.values.first(where: {
+            $0.componentClass == componentClass
+        })
     }
 
     static func components<T>(of identifier: GameComponentSystem.Identifier) -> [T]? {

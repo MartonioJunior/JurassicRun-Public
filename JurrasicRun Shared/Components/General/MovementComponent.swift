@@ -62,7 +62,6 @@ class MovementComponent: GKComponent {
         actor.run(moveAction) {
             self.nextTranslation = nil
             self.isMoving = false
-            self.entity()?.component(ofType: AnimationComponent.self)?.cancelAnimation()
         }
     }
 

@@ -11,7 +11,6 @@ class SKDinosaur: Character {
         return GameEntity(with: [
             DinosaurLogicComponent(),
             AnimationComponent(animationTags: ["Dinosaur-Run", "Dinosaur-Jump"]),
-            MovementComponent(speed: 120.0),
             WalkActionComponent(),
             RunActionComponent(),
             JumpActionComponent(),

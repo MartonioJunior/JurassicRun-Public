@@ -31,7 +31,7 @@ extension SKLabelNode {
     static func secondaryTitle(with text: String) -> SKLabelNode {
         let label = SKLabelNode(fontNamed: "Helvetica")
         label.fontSize = 30
-        label.fontColor = .white
+        label.fontColor = .systemBlue
         label.text = text
         label.zPosition = 10
         return label
@@ -40,7 +40,7 @@ extension SKLabelNode {
     static func secondaryDetail(with text: String) -> SKLabelNode {
         let label = SKLabelNode(fontNamed: "Helvetica")
         label.fontSize = 24
-        label.fontColor = .white
+        label.fontColor = .systemBlue
         label.text = text
         label.zPosition = 10
         return label
@@ -48,8 +48,8 @@ extension SKLabelNode {
 
     static func buttonMain(with text: String) -> SKLabelNode {
         let label = SKLabelNode(fontNamed: "Helvetica")
-        label.fontSize = 24
-        label.fontColor = .white
+        label.fontSize = 8
+        label.fontColor = .systemBlue
         label.text = text
         label.zPosition = 10
         return label
@@ -57,8 +57,8 @@ extension SKLabelNode {
 
     static func buttonDetail(with text: String) -> SKLabelNode {
         let label = SKLabelNode(fontNamed: "Helvetica")
-        label.fontSize = 18
-        label.fontColor = .white
+        label.fontSize = 6
+        label.fontColor = .systemBlue
         label.text = text
         label.zPosition = 10
         return label

@@ -17,7 +17,14 @@ class WaitActionComponent: PlayerActionComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func act(extraInfo: [String: Any]) -> Bool {
+        guard let player = self.node?.getPlayer() else { return false }
+        player.applyWait()
+        return true
+    }
+
     override func canAct() -> Bool {
-        return super.canAct()
+        guard let player = self.node?.getPlayer() else { return false }
+        return super.canAct() && player.movesLeft > 0
     }
 }

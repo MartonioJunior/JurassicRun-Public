@@ -11,7 +11,6 @@ class SKHuman: Character {
         return GameEntity(with: [
             HumanLogicComponent(),
             AnimationComponent(animationTags: ["Human-Run", "Human-Jump"]),
-            MovementComponent(speed: 60.0),
             WalkActionComponent(),
             RunActionComponent(),
             JumpActionComponent(),

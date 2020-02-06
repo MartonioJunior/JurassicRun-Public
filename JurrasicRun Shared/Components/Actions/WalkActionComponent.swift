@@ -8,7 +8,7 @@
 
 import GameplayKit
 
-class WalkActionComponent: PlayerActionComponent {
+class WalkActionComponent: PlayerActionComponent, MovementAction {
     init() {
         super.init(named: "Walk")
     }
@@ -17,18 +17,20 @@ class WalkActionComponent: PlayerActionComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func act(extraInfo: [String: Any]) {
-        guard let destinationTile = extraInfo["end"] as? GameBoardTile, canAct() else {
-            return
-        }
-        guard self.move(type: .yellow, to: destinationTile), let player = self.node?.getPlayer() else { return }
-        player.applyWalk()
+    override func act(extraInfo: [String: Any]) -> Bool {
+        guard let destinationTile = extraInfo["end"] as? GameBoardTile, canAct() else { return false }
+        let actionDone = self.move(type: .yellow, to: destinationTile)
+        return actionDone
     }
 
     override func canAct() -> Bool {
         guard let player = self.node?.getPlayer() else { return false }
-        return super.canAct() && player.yellowMoveCost <= player.movesLeft
+        return super.canAct() && player.lastAction == nil
+    }
+
+    func moveHasFinished(success: Bool) {
+        guard let player = self.node?.getPlayer(), success else { return }
+        player.applyWalk()
+        player.status?.player(player, hasDoneAction: self)
     }
 }
-
-extension WalkActionComponent: MovementAction {}

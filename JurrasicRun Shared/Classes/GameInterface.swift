@@ -10,6 +10,8 @@ import Foundation
 
 class GameInterface {
     weak var scene: GameScene?
+    var selectingTile: Bool = false
+    var selectedAction: PlayerActionComponent?
 
     init(scene: GameScene) {
         self.scene = scene
@@ -24,25 +26,35 @@ class GameInterface {
     }
 
     func selected(action: PlayerActionComponent, on scene: GameScene) {
+        selectedAction = action
         self.hideActionMenu(on: scene)
+        switch action.name {
+        case "Sniff", "Wait":
+            action.act(extraInfo: [:])
+        case "Sprint":
+            guard let randomHuman = self.scene?.controller?.humans.randomElement() else { return }
+            action.act(extraInfo: ["target": randomHuman])
+        default:
+            self.showTileSelectionMenu(on: scene)
+        }
     }
 
     func showActionMenu(on scene: GameScene) {
         guard let player = scene.controller?.currentPlayer?.entity() else { return }
-        player.addComponent(InterfaceComponent(ActionViewController()))
+        player.attachComponent(InterfaceComponent(ActionViewController(on: self)))
     }
 
     func hideActionMenu(on scene: GameScene) {
         guard let player = scene.controller?.currentPlayer?.entity() else { return }
-        player.removeComponent(ofType: InterfaceComponent.self)
+        player.deleteComponent(ofType: InterfaceComponent.self)
     }
 
     func showTileSelectionMenu(on scene: GameScene) {
-
+        selectingTile = true
     }
 
     func hideTileSelectionMenu(on scene: GameScene) {
-
+        selectingTile = false
     }
 
     func showMapDisplayMenu(on scene: GameScene) {
@@ -58,18 +70,19 @@ class GameInterface {
     }
 
     func selected(tile: GameBoardTile, on scene: GameScene) {
-        guard let currentPlayer = scene.controller?.currentPlayer else { return }
-        for path in GameBoard.PathType.allTypes {
-            if validTileSelected(tile, for: currentPlayer, on: path) {
-                currentPlayer.move(type: path, to: tile)
-                self.hideTileSelectionMenu(on: scene)
-                break
-            }
-        }
+        guard let action = selectedAction else { return }
+        action.act(extraInfo: ["end": tile])
+//        for path in GameBoard.PathType.allTypes {
+//            if validTileSelected(tile, for: currentPlayer, on: path) {
+//                currentPlayer.move(type: path, to: tile)
+//                self.hideTileSelectionMenu(on: scene)
+//                break
+//            }
+//        }
     }
 
-    func validTileSelected(_ tile: GameBoardTile, for player: PlayerLogicComponent,
-                           on path: GameBoard.PathType) -> Bool {
-        return player.spacesAvailable(for: path)?.contains(where: {$0.idNumber == tile.idNumber}) ?? false
-    }
+//    func validTileSelected(_ tile: GameBoardTile, for player: PlayerLogicComponent,
+//                           on path: GameBoard.PathType) -> Bool {
+//        return player.spacesAvailable(for: path)?.contains(where: {$0.idNumber == tile.idNumber}) ?? false
+//    }
 }

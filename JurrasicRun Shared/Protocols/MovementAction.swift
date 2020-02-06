@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol MovementAction {}
+protocol MovementAction {
+    func moveHasFinished(success: Bool)
+}
 
 extension MovementAction where Self: PlayerActionComponent {
     @discardableResult
@@ -24,21 +26,28 @@ extension MovementAction where Self: PlayerActionComponent {
         return self.move(player, type: type, to: tile)
     }
 
-    func move(_ player: PlayerLogicComponent, type: GameBoard.PathType, to tile: GameBoardTile) -> Bool {
-        guard let playerNode = player.node,
-            let tileNode = tile.node,
-            let playerMovement = playerNode.entity()?.getComponent(ofType: MovementComponent.self),
-            !playerMovement.isMoving else { return false }
-        playerMovement.nextTranslation = MovementKind(from: playerNode.position, to: tileNode.position)
-        let animationTag = type != .red ? "Run" : "Jump"
-        let animationTime = 0.1
+    func move(_ player: PlayerLogicComponent, type: GameBoard.PathType,
+              to tile: GameBoardTile) -> Bool {
+        guard player.currentTile?.idNumber != tile.idNumber,
+            let playerNode = player.node, let tileNode = tile.node else {
+                self.moveHasFinished(success: false)
+                return false
+        }
+
+        // Defining animation settings for move
+        let movement = MovementKind(from: playerNode.position, to: tileNode.position)
+        let animationTag = getAnimationTag(for: type)
+        let animationTime = Settings.Animation.animationTime * Settings.Animation.animationSpeed
+        let nodeSpeed = getSpeed(for: player, type: type)
+
         self.node?.getCameraFocus()
-        self.entity()?.getComponent(ofType: AnimationComponent.self)?.runAnimation(
-            withTag: animationTag, frameTime: animationTime, completion: { (completed) in
-            guard completed else { return }
+        let animation = self.entity()?.getComponent(ofType: AnimationComponent.self)
+        animation?.run(animationTag, with: movement, movementSpeed: nodeSpeed,
+                       frameTime: animationTime, loopForever: false) {
             self.node?.resignCameraFocus()
             player.status?.player(player, passed: type, to: tile)
-        })
+            self.moveHasFinished(success: true)
+        }
         return true
     }
 
@@ -51,5 +60,41 @@ extension MovementAction where Self: PlayerActionComponent {
             return nil
         }
         return nextSpace
+    }
+
+    func getAnimationTag(for type: GameBoard.PathType) -> String {
+        switch type {
+        case .yellow:
+            return "Run"
+        case .blue:
+            return "Run"
+        case .red:
+            return "Jump"
+        }
+    }
+
+    func getSpeed(for player: PlayerLogicComponent, type: GameBoard.PathType) -> Double {
+        // Get player's speed
+        var playerSpeed: Double
+        switch player {
+        case is HumanLogicComponent:
+            playerSpeed = 60.0
+        case is DinosaurLogicComponent:
+            playerSpeed = 120.0
+        default:
+            playerSpeed = 1.0
+        }
+
+        // Get action's speed modifier
+        var actionModifier: Double
+        switch type {
+        case .yellow:
+            actionModifier = 1.0
+        case .blue:
+            actionModifier = 2.0
+        case .red:
+            actionModifier = 5.0
+        }
+        return playerSpeed * actionModifier * Settings.Animation.animationSpeed
     }
 }

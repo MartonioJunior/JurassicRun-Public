@@ -14,4 +14,5 @@ protocol PlayerStatus {
     func player(_ player: PlayerLogicComponent, passed pathType: GameBoard.PathType, to targetTile: GameBoardTile)
     func playerRevealed(_ player: PlayerLogicComponent)
     func playerHid(_ player: PlayerLogicComponent)
+    func player(_ player: PlayerLogicComponent, hasDoneAction action: PlayerActionComponent)
 }

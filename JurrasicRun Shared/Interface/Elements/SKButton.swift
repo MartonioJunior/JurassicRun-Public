@@ -15,7 +15,7 @@ class SKButton: SKNode {
     }()
 
     lazy var background: SKSpriteNode = {
-        let background = SKSpriteNode(color: .blue, size: .zero)
+        let background = SKSpriteNode(color: .white, size: .zero)
         return background
     }()
 
@@ -25,9 +25,16 @@ class SKButton: SKNode {
             label.text = text
         }
     }
-    var normalImage: SKTexture? // TODO: Remove optional
-    var highlightedImage: SKTexture? // TODO: Remove optional
-    var selectedButton: SKTexture? // TODO: Remove optional
+
+    var isActive: Bool = true {
+        didSet {
+            self.isHidden = !self.isActive
+            self.isUserInteractionEnabled = self.isActive
+        }
+    }
+    //var normalImage: SKTexture? // TODO: Remove optional
+    //var highlightedImage: SKTexture? // TODO: Remove optional
+    //var selectedButton: SKTexture? // TODO: Remove optional
     var action: ((SKButton) -> Void)?
 
     init(frame: CGRect) {
@@ -41,7 +48,7 @@ class SKButton: SKNode {
         self.position = frame.origin
         self.background.position = .zero
         self.background.size = frame.size
-        self.label.position = CGPoint(x: frame.width/2, y: frame.height/2)
+        self.label.position = .zero
         self.label.verticalAlignmentMode = .center
         self.label.horizontalAlignmentMode = .center
     }
@@ -50,8 +57,8 @@ class SKButton: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func didSelect(_ button: SKButton) {
+    func selected() {
         guard let action = action else { return }
-        action(button)
+        action(self)
     }
 }

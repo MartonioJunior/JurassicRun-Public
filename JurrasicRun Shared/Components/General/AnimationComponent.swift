@@ -9,6 +9,7 @@
 import GameplayKit
 
 class AnimationComponent: GKComponent {
+    // MARK: Animation Properties
     var allAnimations: [String: SKTextureAtlas]
     var currentAnimationTag: String?
     var isAnimating: Bool {
@@ -50,37 +51,38 @@ class AnimationComponent: GKComponent {
         return allAnimations.keys.first(where: { $0.hasSuffix(tag)})
     }
 
-    func runAnimation(withTag tag: String, frameTime delta: TimeInterval, completion: ((Bool) -> Void)?) {
-        guard let animation = self.getAnimation(withTag: tag) else { return }
-        self.currentAnimationTag = self.getAnimationTag(for: tag)
-        run(animation: animation, frameTime: delta, completion: completion)
-    }
-
-    func runAnimation(withTag tag: String, totalTime delta: TimeInterval, completion: ((Bool) -> Void)?) {
-        guard let animation = self.getAnimation(withTag: tag) else { return }
-        self.currentAnimationTag = self.getAnimationTag(for: tag)
-        let numberOfImages = animation.textureNames.count
-        let frameTime = delta / Double(numberOfImages)
-        run(animation: animation, frameTime: frameTime, completion: completion)
-    }
-
-    var animationHasEnded: ((Bool) -> Void)?
-    private func run(animation: SKTextureAtlas, frameTime delta: TimeInterval, completion: ((Bool) -> Void)?) {
+    func run(_ action: SKAction, completion: (() -> Void)? = nil) {
         guard let node = node else { return }
-        let animationTextures = animation.loadTextures()
-        let action = SKAction.repeatForever(SKAction.animate(with: animationTextures, timePerFrame: delta))
-        node.run(action)
-        self.animationHasEnded = completion
+        node.isPaused = false
+        node.run(action) {
+            guard let completion = completion else { return }
+            completion()
+        }
     }
 
-    func cancelAnimation() {
-        guard let animationHasEnded = self.animationHasEnded else { return }
-        animationHasEnded(true)
-        self.animationHasEnded = nil
-        guard let idleAnimationTag = getAnimationTag(for: "Idle") else {
-            self.runAnimation(withTag: "basic", frameTime: 0.1, completion: nil)
-            return
+    func run(_ tag: String, with movement: MovementKind? = nil, movementSpeed speed: Double = 1.0,
+             frameTime delta: TimeInterval, loopForever: Bool = false, completion: (() -> Void)? = nil) {
+        guard let animation = self.getAnimation(withTag: tag) else { return }
+        var actions: [SKAction] = []
+        var animationLoops = 1
+
+        // Define move action
+        if let movement = movement {
+            let movementTime = TimeInterval(movement.distance() / speed)
+            let moveAction = SKAction.move(by: CGVector.create(from: movement.movementDelta), duration: movementTime)
+            actions.append(moveAction)
+            let loopTime = TimeInterval(animation.textureNames.count) * delta
+            animationLoops = Int(movementTime / loopTime)
         }
-        self.runAnimation(withTag: idleAnimationTag, frameTime: 0.1, completion: nil)
+
+        // Define animation action
+        let animationTextures = animation.loadTextures()
+        let animationAction = SKAction.animate(with: animationTextures, timePerFrame: delta)
+        if loopForever {
+            actions.append(SKAction.repeatForever(animationAction))
+        } else {
+            actions.append(SKAction.repeat(animationAction, count: animationLoops+1))
+        }
+        self.run(SKAction.group(actions), completion: completion)
     }
 }

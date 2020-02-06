@@ -21,13 +21,19 @@ class InterfaceComponent: GKComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        controller.root()?.removeAllChildren()
+        controller.root()?.removeFromParent()
+    }
+
     override func didAddToEntity() {
         guard let actor = self.entity()?.actor else { return }
         self.node = actor
-        controller.setupController(for: actor)
+        controller.actor = actor
+        controller.setup()
     }
 
     override func update(deltaTime seconds: TimeInterval) {
-        self.controller.root.alpha = 1.0
+        //self.controller.root()?.alpha = 1.0
     }
 }

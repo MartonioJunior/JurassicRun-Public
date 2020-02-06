@@ -26,8 +26,9 @@ class PlayerActionComponent: GKComponent {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func act(extraInfo: [String: Any]) {
-
+    @discardableResult
+    func act(extraInfo: [String: Any]) -> Bool {
+        return false
     }
 
     func canAct() -> Bool {
